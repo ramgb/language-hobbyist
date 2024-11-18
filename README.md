@@ -1,3 +1,3 @@
-# haskell-trials
+# language-hobbyist
 
-Getting back in touch with my inner hobbyist
+Getting in touch with my inner programmign language hobbyist. 
