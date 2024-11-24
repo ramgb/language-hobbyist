@@ -21,6 +21,7 @@ type Sudoku struct {
 }
 
 func estimateDifficulty(_ *[9][9]int) Difficulty {
+	// For now, we'll just return Hard for all boards
 	return Hard
 }
 
