@@ -2,8 +2,9 @@
 
 Getting in touch with my inner programming language hobbyist. 
 
-Beginner     |    Not Beginner
---------------------------------
-Haskell      |    Java
-Go           |    Python
-
+Languages ( in ascending order of degree of relative proficiency)
+------------------------------------------------------------------------
+Go
+Haskell
+Python
+Java
