@@ -20,6 +20,14 @@ type Sudoku struct {
 	difficulty Difficulty
 }
 
+func (s *Sudoku) GetDifficulty() Difficulty {
+	return s.difficulty
+}
+
+func (s *Sudoku) GetBoard() [9][9]int {
+	return s.board
+}
+
 func estimateDifficulty(_ *[9][9]int) Difficulty {
 	// For now, we'll just return Hard for all boards
 	return Hard
