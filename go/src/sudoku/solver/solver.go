@@ -61,47 +61,25 @@ func updateValue(x int, y int, value int, guesses *[9][9]map[int]bool) bool {
 			}
 		}
 	}
+
+	x0 := x / 3 * 3
+	y0 := y / 3 * 3
+	for i := x0; i < x0+3; i++ {
+		for j := y0; j < y0+3; j++ {
+			if i != x && j != y {
+				delete(guesses[i][j], value)
+				if len(guesses[i][j]) == 0 {
+					return false
+				}
+			}
+		}
+	}
 	return true
 }
 
-func (s *SimpleSolver) solveInternal(x int, y int) bool {
-	// return when hitting the final cell
-	if y == 9 {
-		return s.solveInternal(x+1, 0)
-	} else if x == 9 {
-		return true
-	} else {
-		// If there are no possible values for the cell, return since its invalid
-		if len(s.guesses[x][y]) == 0 {
-			return false
-		}
-		// if the cell has more than one possible value guess before moving to the next cell
-		if len(s.guesses[x][y]) > 1 {
-			guessesSnapshot := s.guesses
-			for guess := range s.guesses[x][y] {
-				updated := updateValue(x, y, guess, &s.guesses)
-				if updated {
-					solved := s.solveInternal(x, y+1)
-					if solved {
-						return true
-					}
-				}
-				oldSnapshot := guessesSnapshot
-				s.guesses = oldSnapshot
-			}
-		}
-		return s.solveInternal(x, y+1)
-	}
-}
-
-func (s *SimpleSolver) Solve() float64 {
-	start := time.Now()
-	solved := s.solveInternal(0, 0)
-
-	if !solved {
-		// throw an error
-		return -1
-	}
+// For Debugging - remove before productionizing
+// Print the number of guesses for each cell
+func (s *SimpleSolver) printGuesses() {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			fmt.Print(len(s.guesses[i][j]))
@@ -111,5 +89,13 @@ func (s *SimpleSolver) Solve() float64 {
 		}
 		fmt.Println()
 	}
+}
+
+// Main function to solve the Sudoku
+func (s *SimpleSolver) Solve() float64 {
+	start := time.Now()
+
+	// TODO: Implement the internal solve method
+	s.printGuesses()
 	return time.Since(start).Seconds()
 }
