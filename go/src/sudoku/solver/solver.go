@@ -32,8 +32,7 @@ func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
 			if board[i][j] != 0 {
 				updated := updateValue(i, j, board[i][j], &guesses)
 				if !updated {
-					// throw an error
-					return nil
+					panic("Invalid board")
 				}
 			}
 		}
