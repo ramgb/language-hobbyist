@@ -21,7 +21,6 @@ func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
 	return &SimpleSolver{sudoku: s}
 }
 
-// Main function to solve the Sudoku
 func (s *SimpleSolver) Solve() float64 {
 	start := time.Now()
 	return time.Since(start).Seconds()

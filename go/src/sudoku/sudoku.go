@@ -28,9 +28,23 @@ func (s *Sudoku) GetBoard() [9][9]int {
 	return s.board
 }
 
-func estimateDifficulty(_ *[9][9]int) Difficulty {
-	// For now, we'll just return Hard for all boards
-	return Hard
+func estimateDifficulty(board *[9][9]int) Difficulty {
+	filledCells := 0
+
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			if board[i][j] != 0 {
+				filledCells++
+			}
+		}
+	}
+	if filledCells < 10 {
+		return Hard
+	} else if filledCells < 20 {
+		return Medium
+	} else {
+		return Easy
+	}
 }
 
 func readBoardFromFile(inputFile string, board *[9][9]int) {
