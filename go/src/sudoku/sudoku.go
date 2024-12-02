@@ -16,8 +16,9 @@ const (
 )
 
 type Sudoku struct {
-	board      [9][9]int
-	difficulty Difficulty
+	board       [9][9]int
+	solvedBoard [9][9]int
+	difficulty  Difficulty
 }
 
 func (s *Sudoku) GetDifficulty() Difficulty {
@@ -26,6 +27,14 @@ func (s *Sudoku) GetDifficulty() Difficulty {
 
 func (s *Sudoku) GetBoard() [9][9]int {
 	return s.board
+}
+
+func (s *Sudoku) GetSolvedBoard() [9][9]int {
+	return s.solvedBoard
+}
+
+func (s *Sudoku) SetSolvedBoard(board [9][9]int) {
+	s.solvedBoard = board
 }
 
 func estimateDifficulty(board *[9][9]int) Difficulty {
@@ -90,19 +99,28 @@ func readBoardFromFile(inputFile string, board *[9][9]int) {
 
 func initBoard(inputFile string) *Sudoku {
 	board := [9][9]int{}
+	solvedBoard := [9][9]int{}
 	readBoardFromFile(inputFile, &board)
 	CurrentDifficulty := estimateDifficulty(&board)
-	return &Sudoku{board, CurrentDifficulty}
+	return &Sudoku{board, solvedBoard, CurrentDifficulty}
 }
 
 func (s *Sudoku) PrintBoard() {
+	s.internalPrintBoard(s.board)
+}
+
+func (s *Sudoku) PrintSolvedBoard() {
+	s.internalPrintBoard(s.solvedBoard)
+}
+
+func (s *Sudoku) internalPrintBoard(anyBoard [9][9]int) {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			// Print an underscore for empty cells
-			if s.board[i][j] == 0 {
+			if anyBoard[i][j] == 0 {
 				fmt.Print("_")
 			} else {
-				fmt.Print(s.board[i][j])
+				fmt.Print(anyBoard[i][j])
 			}
 			// Add spaces for better formatting for all but the last column
 			if j < 8 {
