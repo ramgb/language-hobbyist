@@ -1,7 +1,7 @@
 package solver
 
 import (
-	"exercises/src/sudoku"
+	"sudokusolver/src/sudoku"
 	"time"
 )
 

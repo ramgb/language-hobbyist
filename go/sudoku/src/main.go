@@ -1,9 +1,9 @@
 package main
 
 import (
-	"exercises/src/sudoku"
-	"exercises/src/sudoku/solver"
 	"fmt"
+	"sudokusolver/src/sudoku"
+	"sudokusolver/src/sudoku/solver"
 )
 
 func main() {
