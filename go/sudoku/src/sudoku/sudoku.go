@@ -124,7 +124,7 @@ func (s *Sudoku) internalPrintBoard(anyBoard [9][9]int) {
 			}
 			// Add spaces for better formatting for all but the last column
 			if j < 8 {
-				fmt.Print(" ")
+				fmt.Print("\t")
 			}
 		}
 		fmt.Println()
