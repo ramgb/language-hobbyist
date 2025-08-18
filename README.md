@@ -6,5 +6,4 @@ Languages ( in ascending order of degree of relative proficiency)
 ------------------------------------------------------------------------
 Go <br>
 Haskell <br>
-Python <br>
-Java <br>
+Javascript (React) <br> 
