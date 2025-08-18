@@ -1,9 +1,9 @@
 # language-hobbyist
 
-Getting in touch with my inner programming language hobbyist. 
+Getting in touch with my inner programming language hobbyist. Excluding Python and Java here as I'm well past the hobbyist phase in those 2 languages.
 
-Languages ( in ascending order of degree of relative proficiency)
+Languages to Explore
 ------------------------------------------------------------------------
-Go <br>
-Haskell <br>
-Javascript (React) <br> 
+Go (Beginner) <br>
+Haskell (Stop-Start) <br>
+Javascript (React) (Stop-Start) <br> 
