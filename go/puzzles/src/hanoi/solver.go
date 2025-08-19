@@ -13,10 +13,10 @@ func Start() {
 
 func solve(numDisks int, source string, destination string, intermediate string) {
 	if numDisks == 1 {
-		fmt.Println(source + " -> " + destination)
+		fmt.Printf(fmt.Sprintf("%s -> %s", source, destination), "\n")
 		return
 	}
 	solve(numDisks-1, source, intermediate, destination)
-	fmt.Println(source + " -> " + destination)
+	fmt.Printf(fmt.Sprintf("%s -> %s", source, destination), "\n")
 	solve(numDisks-1, intermediate, destination, source)
 }
