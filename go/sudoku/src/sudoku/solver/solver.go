@@ -45,10 +45,16 @@ func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
 }
 
 func updateValue(x int, y int, value int, guesses *[9][9]map[int]bool) (bool, [9][9]map[int]bool) {
+
+	// reset the guesses for current cell to have only "value" as valid guess
 	guesses[x][y] = map[int]bool{value: true}
+
+	// track what guesses were elimiinated from "neighboring cells".
+	// We will use this to undo the changes if needed by adding th
 	changed := [9][9]map[int]bool{}
 
 	for guessForCell := range guesses[x][y] {
+		// change all other guesses for current cell to invalid
 		if guessForCell != value {
 			changed[x][y][guessForCell] = true
 			delete(guesses[x][y], guessForCell)
@@ -61,20 +67,26 @@ func updateValue(x int, y int, value int, guesses *[9][9]map[int]bool) (bool, [9
 		if changed[i][y] == nil {
 			changed[i][y] = map[int]bool{}
 		}
+		// skip the current cell
 		if i != y {
+			// only if value is still viable for (x,i)
 			if guesses[x][i][value] {
 				changed[x][i][value] = true
 			}
 			delete(guesses[x][i], value)
+			// stopping condition - if all guesses are eliminated for a cell, then it's impossible to solve.
 			if len(guesses[x][i]) == 0 {
 				return false, changed
 			}
 		}
+		// skip the current cell
 		if i != x {
+			// only if value is still viable for (i,y)
 			if guesses[i][y][value] {
 				changed[i][y][value] = true
 			}
 			delete(guesses[i][y], value)
+			// same stopping condition as above.
 			if len(guesses[i][y]) == 0 {
 				return false, changed
 			}
@@ -83,16 +95,20 @@ func updateValue(x int, y int, value int, guesses *[9][9]map[int]bool) (bool, [9
 
 	x0 := x / 3 * 3
 	y0 := y / 3 * 3
+
+	// same logic as above for 3x3 box containing (x,y)
 	for i := x0; i < x0+3; i++ {
 		for j := y0; j < y0+3; j++ {
 			if changed[i][j] == nil {
 				changed[i][j] = map[int]bool{}
 			}
 			if i != x && j != y {
+				// only if value is still viable for (i,j)
 				if guesses[i][j][value] {
 					changed[i][j][value] = true
 				}
 				delete(guesses[i][j], value)
+				// same stopping condition as above.
 				if len(guesses[i][j]) == 0 {
 					return false, changed
 				}
