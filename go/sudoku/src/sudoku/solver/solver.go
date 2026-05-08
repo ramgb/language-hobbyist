@@ -15,6 +15,9 @@ type SimpleSolver struct {
 	guesses [9][9]map[int]bool
 }
 
+// TODO(ramgb): use solver interface, add complex solver to have a priority queue of which cell to tackl
+// use the interface for solving
+
 func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
 
 	guesses := [9][9]map[int]bool{}
