@@ -1,0 +1,166 @@
+package solver
+
+import (
+	"sudokusolver/src/sudoku"
+	"time"
+)
+
+type SimpleSolver struct {
+	sudoku  *sudoku.Sudoku
+	guesses [9][9]map[int]bool
+}
+
+// TODO(ramgb): use solver interface, add complex solver to have a priority queue of which cell to tackl
+// use the interface for solving
+
+func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
+
+	guesses := [9][9]map[int]bool{}
+
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			guesses[i][j] = map[int]bool{1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true}
+		}
+	}
+
+	board := s.GetBoard()
+
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			if board[i][j] != 0 {
+				updated, _ := updateValue(i, j, board[i][j], &guesses)
+				if !updated {
+					panic("Invalid board")
+				}
+			}
+		}
+	}
+
+	return &SimpleSolver{
+		sudoku:  s,
+		guesses: guesses,
+	}
+}
+
+func updateValue(x int, y int, value int, guesses *[9][9]map[int]bool) (bool, [9][9]map[int]bool) {
+
+	// reset the guesses for current cell to have only "value" as valid guess
+	guesses[x][y] = map[int]bool{value: true}
+
+	// track what guesses were elimiinated from "neighboring cells".
+	// We will use this to undo the changes if needed by adding th
+	changed := [9][9]map[int]bool{}
+
+	for guessForCell := range guesses[x][y] {
+		// change all other guesses for current cell to invalid
+		if guessForCell != value {
+			changed[x][y][guessForCell] = true
+			delete(guesses[x][y], guessForCell)
+		}
+	}
+	for i := 0; i < 9; i++ {
+		if changed[x][i] == nil {
+			changed[x][i] = map[int]bool{}
+		}
+		if changed[i][y] == nil {
+			changed[i][y] = map[int]bool{}
+		}
+		// skip the current cell
+		if i != y {
+			// only if value is still viable for (x,i)
+			if guesses[x][i][value] {
+				changed[x][i][value] = true
+			}
+			delete(guesses[x][i], value)
+			// stopping condition - if all guesses are eliminated for a cell, then it's impossible to solve.
+			if len(guesses[x][i]) == 0 {
+				return false, changed
+			}
+		}
+		// skip the current cell
+		if i != x {
+			// only if value is still viable for (i,y)
+			if guesses[i][y][value] {
+				changed[i][y][value] = true
+			}
+			delete(guesses[i][y], value)
+			// same stopping condition as above.
+			if len(guesses[i][y]) == 0 {
+				return false, changed
+			}
+		}
+	}
+
+	x0 := x / 3 * 3
+	y0 := y / 3 * 3
+
+	// same logic as above for 3x3 box containing (x,y)
+	for i := x0; i < x0+3; i++ {
+		for j := y0; j < y0+3; j++ {
+			if changed[i][j] == nil {
+				changed[i][j] = map[int]bool{}
+			}
+			if i != x && j != y {
+				// only if value is still viable for (i,j)
+				if guesses[i][j][value] {
+					changed[i][j][value] = true
+				}
+				delete(guesses[i][j], value)
+				// same stopping condition as above.
+				if len(guesses[i][j]) == 0 {
+					return false, changed
+				}
+			}
+		}
+	}
+	return true, changed
+}
+
+func (s *SimpleSolver) undoUpdate(changed [9][9]map[int]bool) {
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			for value := range changed[i][j] {
+				s.guesses[i][j][value] = true
+			}
+		}
+	}
+}
+
+func (s *SimpleSolver) solveInternal(x int, y int) bool {
+	// boundary condition - move to next row
+	if y == 9 {
+		return s.solveInternal(x+1, 0)
+	}
+	// boundary condition - end of board
+	if x == 9 {
+		return true
+	}
+	guesses := s.guesses[x][y]
+	if len(guesses) >= 1 {
+		for guess := range guesses {
+			updated, changed := updateValue(x, y, guess, &s.guesses)
+			if updated {
+				if s.solveInternal(x, y+1) {
+					return true
+				}
+			}
+			s.undoUpdate(changed)
+		}
+		s.guesses[x][y] = guesses
+	}
+
+	return false
+}
+
+// Main function to solve the Sudoku
+func (s *SimpleSolver) Solve() (float64, [9][9]map[int]bool) {
+	start := time.Now()
+
+	solved := s.solveInternal(0, 0)
+
+	if !solved {
+		panic("Error with Solver")
+	}
+
+	return time.Since(start).Seconds(), s.guesses
+}
