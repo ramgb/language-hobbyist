@@ -5,15 +5,12 @@ import (
 	"time"
 )
 
-type SimpleSolver struct {
+type BruteForceSolver struct {
 	sudoku  *sudoku.Sudoku
 	guesses [9][9]map[int]bool
 }
 
-// TODO(ramgb): use solver interface, add complex solver to have a priority queue of which cell to tackl
-// use the interface for solving
-
-func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
+func NewBruteForceSolver(s *sudoku.Sudoku) *BruteForceSolver {
 
 	guesses := [9][9]map[int]bool{}
 
@@ -36,7 +33,7 @@ func NewSimpleSolver(s *sudoku.Sudoku) *SimpleSolver {
 		}
 	}
 
-	return &SimpleSolver{
+	return &BruteForceSolver{
 		sudoku:  s,
 		guesses: guesses,
 	}
@@ -116,7 +113,7 @@ func updateValue(x int, y int, value int, guesses *[9][9]map[int]bool) (bool, [9
 	return true, changed
 }
 
-func (s *SimpleSolver) undoUpdate(changed [9][9]map[int]bool) {
+func (s *BruteForceSolver) undoUpdate(changed [9][9]map[int]bool) {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			for value := range changed[i][j] {
@@ -126,7 +123,7 @@ func (s *SimpleSolver) undoUpdate(changed [9][9]map[int]bool) {
 	}
 }
 
-func (s *SimpleSolver) solveInternal(x int, y int) bool {
+func (s *BruteForceSolver) solveInternal(x int, y int) bool {
 	// boundary condition - move to next row
 	if y == 9 {
 		return s.solveInternal(x+1, 0)
@@ -153,7 +150,7 @@ func (s *SimpleSolver) solveInternal(x int, y int) bool {
 }
 
 // Main function to solve the Sudoku
-func (s *SimpleSolver) Solve() (float64, [9][9]map[int]bool) {
+func (s *BruteForceSolver) Solve() (float64, [9][9]map[int]bool) {
 	start := time.Now()
 
 	solved := s.solveInternal(0, 0)

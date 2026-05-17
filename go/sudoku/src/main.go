@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	sudoku := sudoku.NewSudoku("data/sudoku/sample.txt")
+	sudoku := sudoku.NewSudoku("data/sudoku/1.txt")
 	sudoku.PrintBoard()
 
-	solverInstance := solver.NewSolver(sudoku, solver.SimpleSolverType)
+	solverInstance := solver.NewSolver(sudoku, solver.BruteForceSolverType)
 
 	time, guesses := solverInstance.Solve()
 	fmt.Printf("%f seconds", time)

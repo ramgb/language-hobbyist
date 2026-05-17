@@ -9,13 +9,19 @@ type Solver interface {
 type solverType int
 
 const (
-	SimpleSolverType solverType = iota
+	BruteForceSolverType          solverType = iota
+	OptimizedBruteForceSolverType            = 1
+	DancingLinksSolverType                   = 2
 )
 
 func NewSolver(s *sudoku.Sudoku, t solverType) Solver {
 	switch t {
-	case SimpleSolverType:
-		return NewSimpleSolver(s)
+	case BruteForceSolverType:
+		return NewBruteForceSolver(s)
+	case OptimizedBruteForceSolverType:
+		return NewOptimizedBruteForceSolver(s)
+	case DancingLinksSolverType:
+		return NewDancingLinksSolver(s)
 	default:
 		panic("Invalid solver type")
 	}
