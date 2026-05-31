@@ -27,8 +27,16 @@ func NewPerceptronWithActivationFn(inputDimensions int, activationFunctionType A
 	}
 }
 
+// create a new Function with randomized weights for initializtion
+
+// create a new Function for backpropagation
+
 func (p *Perceptron) Activate(inputs []float64) float64 {
 	sum := p.bias
+
+	if len(inputs) != len(p.weights) {
+		panic("Number of inputs doesn't match the number of weights")
+	}
 	for i, input := range inputs {
 		sum += p.weights[i] * input
 	}
