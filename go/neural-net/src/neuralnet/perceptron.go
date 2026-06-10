@@ -1,4 +1,4 @@
-package perceptron
+package neuralnet
 
 import "math"
 

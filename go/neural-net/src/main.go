@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"neural-net/src/perceptron"
+	"neural-net/src/neuralnet"
 )
 
 func main() {
-	newPerceptron := perceptron.NewPerceptron(2)
+	newPerceptron := neuralnet.NewPerceptron(2)
 	output := newPerceptron.Activate([]float64{1.0, 1.0})
 	fmt.Println(output)
 }
