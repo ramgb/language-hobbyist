@@ -10,7 +10,7 @@ type ActivationFnType int
 type WeightInitType int
 
 // For StandardGaussian
-const sigma = 0.01
+const sigma = 0.1
 const mu = 0.0
 
 const (
