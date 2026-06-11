@@ -1,25 +1,26 @@
 package neuralnet
 
 type Layer struct {
-	Index       int
-	Perceptrons []Perceptron
+	index       int
+	perceptrons []*Perceptron
 }
 
-func NewLayer(index int, inputDimensions int, numNeurons int) Layer {
-	layer := Layer{
-		Perceptrons: make([]Perceptron, numNeurons),
+func NewLayer(layerIndex int, inputDimensions int, numNeurons int) *Layer {
+	layer := &Layer{
+		index:       layerIndex,
+		perceptrons: make([]*Perceptron, numNeurons),
 	}
 
 	for i := range numNeurons {
-		layer.Perceptrons[i] = *NewPerceptron(inputDimensions)
+		layer.perceptrons[i] = NewPerceptron(inputDimensions)
 	}
 	return layer
 }
 
 func (l *Layer) Activate(inputs []float64) []float64 {
-	outputs := make([]float64, len(l.Perceptrons))
+	outputs := make([]float64, len(l.perceptrons))
 
-	for i, p := range l.Perceptrons {
+	for i, p := range l.perceptrons {
 		outputs[i] = p.Activate(inputs)
 	}
 	return outputs

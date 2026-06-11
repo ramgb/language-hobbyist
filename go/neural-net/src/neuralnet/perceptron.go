@@ -27,9 +27,7 @@ func NewPerceptronWithActivationFn(inputDimensions int, activationFunctionType A
 	}
 }
 
-// create a new Function with randomized weights for initializtion
-
-// create a new Function for backpropagation
+// TODO(#4): create a constructor to set up randomized weights
 
 func (p *Perceptron) Activate(inputs []float64) float64 {
 	sum := p.bias
