@@ -1,33 +1,49 @@
 package neuralnet
 
-import "math"
+import (
+	"math"
+	"math/rand/v2"
+)
 
-type ActivationFunctionType int
+type ActivationFnType int
+
+type WeightInitType int
+
+// For StandardGaussian
+const sigma = 0.01
+const mu = 0.0
 
 const (
-	StepActivation ActivationFunctionType = iota
-	SigmoidActivation
+	SigmoidActivation ActivationFnType = iota
+	ReluActivation
+)
+
+const (
+	StandardGaussian WeightInitType = iota
 )
 
 type Perceptron struct {
 	weights            []float64
 	bias               float64
-	activationFunction ActivationFunctionType
+	activationFunction ActivationFnType
 }
 
 func NewPerceptron(inputDimensions int) *Perceptron {
-	return NewPerceptronWithActivationFn(inputDimensions, StepActivation)
+	return NewPerceptronWithActivationFn(inputDimensions, SigmoidActivation, StandardGaussian)
 }
 
-func NewPerceptronWithActivationFn(inputDimensions int, activationFunctionType ActivationFunctionType) *Perceptron {
+func NewPerceptronWithActivationFn(inputDimensions int, activationFunctionType ActivationFnType, weightInitType WeightInitType) *Perceptron {
+	weights := make([]float64, inputDimensions)
+
+	for index := range len(weights) {
+		weights[index] = rand.NormFloat64()*sigma + mu
+	}
 	return &Perceptron{
-		weights:            make([]float64, inputDimensions),
+		weights:            weights,
 		bias:               0.0,
 		activationFunction: activationFunctionType,
 	}
 }
-
-// TODO(#4): create a constructor to set up randomized weights
 
 func (p *Perceptron) Activate(inputs []float64) float64 {
 	sum := p.bias
@@ -39,13 +55,10 @@ func (p *Perceptron) Activate(inputs []float64) float64 {
 		sum += p.weights[i] * input
 	}
 	switch p.activationFunction {
-	case StepActivation:
-		if sum >= 0 {
-			return 1.0
-		}
-		return 0.0
 	case SigmoidActivation:
 		return 1.0 / (1.0 + math.Exp(-sum))
+	case ReluActivation:
+		panic("Not implemented")
 	default:
 		return 0.0
 	}
