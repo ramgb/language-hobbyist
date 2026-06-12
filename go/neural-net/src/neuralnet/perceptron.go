@@ -63,3 +63,11 @@ func (p *Perceptron) Activate(inputs []float64) float64 {
 		return 0.0
 	}
 }
+
+func (p *Perceptron) GetWeight(weightIndex int) float64 {
+	return p.weights[weightIndex]
+}
+
+func (p *Perceptron) UpdateWeight(weightIndex int, newWeight float64) {
+	p.weights[weightIndex] = newWeight
+}

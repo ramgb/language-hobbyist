@@ -26,4 +26,15 @@ func (n *Network) Activate(inputs []float64) []float64 {
 	return layerOutputs
 }
 
-// TODO#5) : backpropagation implementation
+func (n *Network) Train(inputs [][]float64, outputs [][]float64, learningRate float64) {
+	if len(inputs) == 0 || len(outputs) == 0 {
+		panic("No training input/output provided")
+	}
+	if len(inputs) != len(outputs) {
+		panic("Cardinality of training inputs and outputs do not match")
+	}
+
+	if n.layers[len(n.layers)-1].Size() != len(outputs[0]) {
+		panic("Output layer cardinality is not equal to expected output cardinality")
+	}
+}
