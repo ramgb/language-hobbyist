@@ -16,7 +16,7 @@ func NewNetwork(layerDimensions []int, inputDimensions int) *Network {
 	return network
 }
 
-func (n *Network) Activate(inputs []float64) []float64 {
+func (n *Network) activate(inputs []float64) []float64 {
 	layerInputs := inputs
 	var layerOutputs []float64
 	for _, layer := range n.layers {
@@ -36,5 +36,10 @@ func (n *Network) Train(inputs [][]float64, outputs [][]float64, learningRate fl
 
 	if n.layers[len(n.layers)-1].Size() != len(outputs[0]) {
 		panic("Output layer cardinality is not equal to expected output cardinality")
+	}
+
+	for index := range inputs {
+		output := n.Activate(inputs[index])
+		// compute squared error and propagate this to layers as a multiplier
 	}
 }

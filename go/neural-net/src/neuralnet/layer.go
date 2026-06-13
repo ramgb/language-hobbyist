@@ -29,11 +29,3 @@ func (l *Layer) Activate(inputs []float64) []float64 {
 	}
 	return outputs
 }
-
-func (l *Layer) GetCurrentWeight(pIndex int, weightIndex int) float64 {
-	return l.perceptrons[pIndex].GetWeight(weightIndex)
-}
-
-func (l *Layer) UpdateCurrentWeight(pIndex int, weightIndex int, newWeight float64) {
-	l.perceptrons[pIndex].UpdateWeight(weightIndex, newWeight)
-}

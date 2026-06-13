@@ -64,10 +64,6 @@ func (p *Perceptron) Activate(inputs []float64) float64 {
 	}
 }
 
-func (p *Perceptron) GetWeight(weightIndex int) float64 {
-	return p.weights[weightIndex]
-}
-
-func (p *Perceptron) UpdateWeight(weightIndex int, newWeight float64) {
-	p.weights[weightIndex] = newWeight
+func (p *Perceptron) UpdateWeights(nextLayerGradients []float64) {
+	// TODO (#5) : update weights with next layer gradients
 }
