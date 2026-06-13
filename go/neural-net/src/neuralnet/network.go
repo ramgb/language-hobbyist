@@ -1,5 +1,7 @@
 package neuralnet
 
+import "math"
+
 type Network struct {
 	layers []*Layer
 }
@@ -38,10 +40,13 @@ func (n *Network) Train(inputs [][]float64, outputs [][]float64, learningRate fl
 		panic("Output layer cardinality is not equal to expected output cardinality")
 	}
 
-	/*
-		for index := range inputs {
-			output := n.Activate(inputs[index])
-			 compute squared error and propagate this to layers as a multiplier
+	// Implement stochastic gradient
+	for index := range inputs {
+		output := n.Activate(inputs[index])
+
+		squaredError := 0.0
+		for outputIndex := range output {
+			squaredError += 0.5 * math.Pow((output[outputIndex]-outputs[index][outputIndex]), 2)
 		}
-	*/
+	}
 }
