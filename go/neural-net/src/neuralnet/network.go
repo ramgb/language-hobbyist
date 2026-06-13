@@ -38,8 +38,10 @@ func (n *Network) Train(inputs [][]float64, outputs [][]float64, learningRate fl
 		panic("Output layer cardinality is not equal to expected output cardinality")
 	}
 
-	for index := range inputs {
-		output := n.Activate(inputs[index])
-		// compute squared error and propagate this to layers as a multiplier
-	}
+	/*
+		for index := range inputs {
+			output := n.Activate(inputs[index])
+			 compute squared error and propagate this to layers as a multiplier
+		}
+	*/
 }
