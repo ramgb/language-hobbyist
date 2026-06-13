@@ -16,7 +16,7 @@ func NewNetwork(layerDimensions []int, inputDimensions int) *Network {
 	return network
 }
 
-func (n *Network) activate(inputs []float64) []float64 {
+func (n *Network) Activate(inputs []float64) []float64 {
 	layerInputs := inputs
 	var layerOutputs []float64
 	for _, layer := range n.layers {
