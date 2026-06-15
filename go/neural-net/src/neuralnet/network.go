@@ -1,6 +1,9 @@
 package neuralnet
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type Network struct {
 	layers []*Layer
@@ -28,25 +31,37 @@ func (n *Network) Activate(inputs []float64) []float64 {
 	return layerOutputs
 }
 
-func (n *Network) Train(inputs [][]float64, outputs [][]float64, learningRate float64) {
-	if len(inputs) == 0 || len(outputs) == 0 {
+func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learningRate float64) {
+	if len(inputs) == 0 || len(expectedOutput) == 0 {
 		panic("No training input/output provided")
 	}
-	if len(inputs) != len(outputs) {
-		panic("Cardinality of training inputs and outputs do not match")
+	if len(inputs) != len(expectedOutput) {
+		panic("Cardinality of training inputs and output do not match")
 	}
 
-	if n.layers[len(n.layers)-1].Size() != len(outputs[0]) {
+	if n.layers[len(n.layers)-1].Size() != len(expectedOutput[0]) {
 		panic("Output layer cardinality is not equal to expected output cardinality")
 	}
 
 	// Implement stochastic gradient
 	for index := range inputs {
-		output := n.Activate(inputs[index])
-
+		actualOutput := n.Activate(inputs[index])
+		partialGradientAccumulators := make([]float64, len(expectedOutput))
+		nextLayerOutputs := make([]float64, len(expectedOutput))
 		squaredError := 0.0
-		for outputIndex := range output {
-			squaredError += 0.5 * math.Pow((output[outputIndex]-outputs[index][outputIndex]), 2)
+		for outputIndex := range actualOutput {
+			squaredError += 0.5 * math.Pow((actualOutput[outputIndex]-expectedOutput[index][outputIndex]), 2)
+			partialGradientAccumulators[outputIndex] = actualOutput[outputIndex] - expectedOutput[index][outputIndex]
+			nextLayerOutputs[outputIndex] = actualOutput[outputIndex]
 		}
+		fmt.Print("Squared Error for input %d = %f", index, squaredError)
+
+		for i := len(n.layers) - 1; i >= 0; i-- {
+			fmt.Print("Propagating error to layer %d", i)
+			newPartialGradientAccumulators, newNextLayerOutputs := n.layers[i].BackPropagate(partialGradientAccumulators, nextLayerOutputs)
+			partialGradientAccumulators = newPartialGradientAccumulators
+			nextLayerOutputs = newNextLayerOutputs
+		}
+
 	}
 }

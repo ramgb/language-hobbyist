@@ -24,8 +24,21 @@ func (l *Layer) Size() int {
 func (l *Layer) Activate(inputs []float64) []float64 {
 	outputs := make([]float64, len(l.perceptrons))
 
-	for i, p := range l.perceptrons {
-		outputs[i] = p.Activate(inputs)
+	for index, perceptron := range l.perceptrons {
+		outputs[index] = perceptron.Activate(inputs)
 	}
 	return outputs
+}
+
+func (l *Layer) BackPropagate(partialGradientAccumulators []float64, nextLayerOutputs []float64) ([]float64, []float64) {
+	// iterate through all perceptrons in this layer and update their weights.
+	// return new partial gradients and outputs for next layers.
+
+	newPartialGradientAccumulators := make([]float64, len(l.perceptrons))
+	newNextLayerOutputs := make([]float64, len(l.perceptrons))
+
+	for index, perceptron := range l.perceptrons {
+		newPartialGradientAccumulators[index], newNextLayerOutputs[index] = perceptron.UpdateWeights(partialGradientAccumulators, nextLayerOutputs)
+	}
+	return newPartialGradientAccumulators, newNextLayerOutputs
 }
