@@ -7,13 +7,15 @@ import (
 )
 
 func main() {
-	sudoku := sudoku.NewSudoku("data/sudoku/sample.txt")
+	sudoku := sudoku.NewSudoku("data/sudoku/1.txt")
 	sudoku.PrintBoard()
 
-	solver := solver.NewSimpleSolver(sudoku)
+	solverInstance := solver.NewSolver(sudoku, solver.BruteForceSolverType)
 
-	fmt.Printf("%f seconds", solver.Solve())
+	time, guesses := solverInstance.Solve()
+	fmt.Printf("%f seconds", time)
 	fmt.Println()
 
+	sudoku.SetSolvedBoard(solver.GetSolvedBoard(guesses))
 	sudoku.PrintSolvedBoard()
 }
