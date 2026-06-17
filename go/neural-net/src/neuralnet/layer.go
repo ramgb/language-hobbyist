@@ -1,5 +1,7 @@
 package neuralnet
 
+import "fmt"
+
 type Layer struct {
 	index       int
 	perceptrons []*Perceptron
@@ -19,6 +21,13 @@ func NewLayer(layerIndex int, inputDimensions int, numNeurons int) *Layer {
 
 func (l *Layer) Size() int {
 	return len(l.perceptrons)
+}
+
+func (l *Layer) Print() {
+	fmt.Println("Layer #", l.index)
+	for pIndex := range l.perceptrons {
+		l.perceptrons[pIndex].Print()
+	}
 }
 
 func (l *Layer) Activate(inputs []float64) []float64 {

@@ -31,6 +31,14 @@ func (n *Network) Activate(inputs []float64) []float64 {
 	return layerOutputs
 }
 
+func (n *Network) Print() {
+	fmt.Println("Network State")
+	for index := range n.layers {
+		n.layers[index].Print()
+	}
+	fmt.Println("--------------")
+}
+
 func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learningRate float64) {
 	if len(inputs) == 0 || len(expectedOutput) == 0 {
 		panic("No training input/output provided")
@@ -50,7 +58,7 @@ func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learning
 	for squaredError > 0.001 {
 		fmt.Println("Iteration #", iterations)
 		iterations += 1
-		if iterations > 100 {
+		if iterations > 2 {
 			break
 		}
 		for index := range inputs {
@@ -60,13 +68,12 @@ func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learning
 				squaredError += 0.5 * math.Pow((actualOutput[outputIndex]-expectedOutput[index][outputIndex]), 2)
 				partialGradientAccumulators[outputIndex] = actualOutput[outputIndex] - expectedOutput[index][outputIndex]
 			}
-			fmt.Println("Squared Error for input ", index, " = ", squaredError)
 
 			for i := len(n.layers) - 1; i >= 0; i-- {
-				fmt.Println("Propagating error to layer ", i)
 				newPartialGradientAccumulators := n.layers[i].BackPropagate(partialGradientAccumulators, learningRate)
 				partialGradientAccumulators = newPartialGradientAccumulators
 			}
+			n.Print()
 
 		}
 	}

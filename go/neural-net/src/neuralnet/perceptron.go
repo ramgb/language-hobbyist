@@ -1,6 +1,7 @@
 package neuralnet
 
 import (
+	"fmt"
 	"math"
 	"math/rand/v2"
 )
@@ -58,6 +59,11 @@ func NewPerceptronWithActivationFn(inputDimensions int, activationFunctionType A
 	}
 }
 
+func (p *Perceptron) Print() {
+	fmt.Println("weights = ", p.weights)
+	fmt.Println("activated Input = ", p.activatedInput)
+	fmt.Println("activatedOutput = ", p.activatedOutput)
+}
 func (p *Perceptron) Size() int {
 	return len(p.weights)
 }
