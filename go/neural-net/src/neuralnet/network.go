@@ -44,24 +44,30 @@ func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learning
 	}
 
 	// Implement stochastic gradient
-	for index := range inputs {
-		actualOutput := n.Activate(inputs[index])
-		partialGradientAccumulators := make([]float64, len(expectedOutput))
-		nextLayerOutputs := make([]float64, len(expectedOutput))
-		squaredError := 0.0
-		for outputIndex := range actualOutput {
-			squaredError += 0.5 * math.Pow((actualOutput[outputIndex]-expectedOutput[index][outputIndex]), 2)
-			partialGradientAccumulators[outputIndex] = actualOutput[outputIndex] - expectedOutput[index][outputIndex]
-			nextLayerOutputs[outputIndex] = actualOutput[outputIndex]
-		}
-		fmt.Print("Squared Error for input %d = %f", index, squaredError)
 
-		for i := len(n.layers) - 1; i >= 0; i-- {
-			fmt.Print("Propagating error to layer %d", i)
-			newPartialGradientAccumulators, newNextLayerOutputs := n.layers[i].BackPropagate(partialGradientAccumulators, nextLayerOutputs)
-			partialGradientAccumulators = newPartialGradientAccumulators
-			nextLayerOutputs = newNextLayerOutputs
+	squaredError := 1.0
+	iterations := 0
+	for squaredError > 0.001 {
+		fmt.Println("Iteration #", iterations)
+		iterations += 1
+		if iterations > 100 {
+			break
 		}
+		for index := range inputs {
+			actualOutput := n.Activate(inputs[index])
+			partialGradientAccumulators := make([]float64, len(expectedOutput[0]))
+			for outputIndex := range actualOutput {
+				squaredError += 0.5 * math.Pow((actualOutput[outputIndex]-expectedOutput[index][outputIndex]), 2)
+				partialGradientAccumulators[outputIndex] = actualOutput[outputIndex] - expectedOutput[index][outputIndex]
+			}
+			fmt.Println("Squared Error for input ", index, " = ", squaredError)
 
+			for i := len(n.layers) - 1; i >= 0; i-- {
+				fmt.Println("Propagating error to layer ", i)
+				newPartialGradientAccumulators := n.layers[i].BackPropagate(partialGradientAccumulators, learningRate)
+				partialGradientAccumulators = newPartialGradientAccumulators
+			}
+
+		}
 	}
 }

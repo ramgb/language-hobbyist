@@ -33,6 +33,7 @@ type Perceptron struct {
 	weights            []float64
 	bias               float64
 	state              ActivationState
+	activatedInput     []float64
 	activatedOutput    float64
 	activationFunction ActivationFnType
 }
@@ -51,12 +52,18 @@ func NewPerceptronWithActivationFn(inputDimensions int, activationFunctionType A
 		weights:            weights,
 		bias:               0.0,
 		state:              InActive,
+		activatedInput:     make([]float64, len(weights)),
 		activatedOutput:    0.0,
 		activationFunction: activationFunctionType,
 	}
 }
 
+func (p *Perceptron) Size() int {
+	return len(p.weights)
+}
+
 func (p *Perceptron) Activate(inputs []float64) float64 {
+	p.activatedInput = inputs
 	sum := p.bias
 
 	if len(inputs) != len(p.weights) {
@@ -77,20 +84,20 @@ func (p *Perceptron) Activate(inputs []float64) float64 {
 	}
 }
 
-func (p *Perceptron) UpdateWeights(partialGradientAccumulator []float64, nextLayerOutputs []float64) (float64, float64) {
+func (p *Perceptron) UpdateWeights(partialGradientAccumulator float64, learningRate float64) []float64 {
 	// Update each weight based on partial gradients of the next layer.
 
 	if p.state != Active {
 		panic("Activation function should already be run before updating weights")
 	}
-	currentNodeGradientAccumulator := 0.0
+	currentNodeGradientAccumulator := make([]float64, len(p.weights))
 	currentActivatedOutput := p.activatedOutput
 	for index := range p.weights {
-		currentNodeGradientAccumulator += p.weights[index] * partialGradientAccumulator[index]
-		p.weights[index] = partialGradientAccumulator[index] * nextLayerOutputs[index] * (1.0 - nextLayerOutputs[index]) * currentActivatedOutput
+		currentNodeGradientAccumulator[index] = p.weights[index] * partialGradientAccumulator
+		p.weights[index] -= learningRate * partialGradientAccumulator * currentActivatedOutput * (1.0 - currentActivatedOutput) * p.activatedInput[index]
 	}
 
 	p.state = InActive
 	p.activatedOutput = 0.0
-	return currentNodeGradientAccumulator, currentActivatedOutput
+	return currentNodeGradientAccumulator
 }
