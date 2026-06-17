@@ -31,6 +31,14 @@ func (n *Network) Activate(inputs []float64) []float64 {
 	return layerOutputs
 }
 
+func (n *Network) Print() {
+	fmt.Println("Network State")
+	for index := range n.layers {
+		n.layers[index].Print()
+	}
+	fmt.Println("--------------")
+}
+
 func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learningRate float64) {
 	if len(inputs) == 0 || len(expectedOutput) == 0 {
 		panic("No training input/output provided")
@@ -44,24 +52,27 @@ func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learning
 	}
 
 	// Implement stochastic gradient
-	for index := range inputs {
-		actualOutput := n.Activate(inputs[index])
-		partialGradientAccumulators := make([]float64, len(expectedOutput))
-		nextLayerOutputs := make([]float64, len(expectedOutput))
-		squaredError := 0.0
-		for outputIndex := range actualOutput {
-			squaredError += 0.5 * math.Pow((actualOutput[outputIndex]-expectedOutput[index][outputIndex]), 2)
-			partialGradientAccumulators[outputIndex] = actualOutput[outputIndex] - expectedOutput[index][outputIndex]
-			nextLayerOutputs[outputIndex] = actualOutput[outputIndex]
-		}
-		fmt.Print("Squared Error for input %d = %f", index, squaredError)
 
-		for i := len(n.layers) - 1; i >= 0; i-- {
-			fmt.Print("Propagating error to layer %d", i)
-			newPartialGradientAccumulators, newNextLayerOutputs := n.layers[i].BackPropagate(partialGradientAccumulators, nextLayerOutputs)
-			partialGradientAccumulators = newPartialGradientAccumulators
-			nextLayerOutputs = newNextLayerOutputs
-		}
+	squaredError := 1.0
+	iterations := 0
+	for squaredError > 0.001 {
+		fmt.Println("Iteration #", iterations)
+		iterations += 1
+		squaredError = 0.0
+		for index := range inputs {
+			actualOutput := n.Activate(inputs[index])
+			partialGradientAccumulators := make([]float64, len(expectedOutput[0]))
+			for outputIndex := range actualOutput {
+				squaredError += 0.5 * math.Pow((actualOutput[outputIndex]-expectedOutput[index][outputIndex]), 2)
+				partialGradientAccumulators[outputIndex] = actualOutput[outputIndex] - expectedOutput[index][outputIndex]
+			}
 
+			for i := len(n.layers) - 1; i >= 0; i-- {
+				partialGradientAccumulators = n.layers[i].BackPropagate(partialGradientAccumulators, learningRate)
+			}
+
+		}
+		fmt.Println("squaredError = ", squaredError)
 	}
+	fmt.Println("#iterations completed = ", iterations)
 }
