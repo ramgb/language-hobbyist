@@ -58,9 +58,7 @@ func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learning
 	for squaredError > 0.001 {
 		fmt.Println("Iteration #", iterations)
 		iterations += 1
-		if iterations > 2 {
-			break
-		}
+		squaredError = 0.0
 		for index := range inputs {
 			actualOutput := n.Activate(inputs[index])
 			partialGradientAccumulators := make([]float64, len(expectedOutput[0]))
@@ -70,11 +68,11 @@ func (n *Network) Train(inputs [][]float64, expectedOutput [][]float64, learning
 			}
 
 			for i := len(n.layers) - 1; i >= 0; i-- {
-				newPartialGradientAccumulators := n.layers[i].BackPropagate(partialGradientAccumulators, learningRate)
-				partialGradientAccumulators = newPartialGradientAccumulators
+				partialGradientAccumulators = n.layers[i].BackPropagate(partialGradientAccumulators, learningRate)
 			}
-			n.Print()
 
 		}
+		fmt.Println("squaredError = ", squaredError)
 	}
+	fmt.Println("#iterations completed = ", iterations)
 }

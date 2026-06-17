@@ -13,8 +13,8 @@ type WeightInitType int
 type ActivationState int
 
 // For StandardGaussian
-const sigma = 0.1
-const mu = 0.0
+const sigma = 0.5
+const mu = 5.0
 
 const (
 	SigmoidActivation ActivationFnType = iota
@@ -99,7 +99,7 @@ func (p *Perceptron) UpdateWeights(partialGradientAccumulator float64, learningR
 	currentNodeGradientAccumulator := make([]float64, len(p.weights))
 	currentActivatedOutput := p.activatedOutput
 	for index := range p.weights {
-		currentNodeGradientAccumulator[index] = p.weights[index] * partialGradientAccumulator
+		currentNodeGradientAccumulator[index] = p.weights[index] * partialGradientAccumulator * currentActivatedOutput * (1.0 - currentActivatedOutput)
 		p.weights[index] -= learningRate * partialGradientAccumulator * currentActivatedOutput * (1.0 - currentActivatedOutput) * p.activatedInput[index]
 	}
 
