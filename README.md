@@ -4,6 +4,5 @@ Getting in touch with my inner programming language hobbyist. Excluding Python a
 
 Languages to Explore
 ------------------------------------------------------------------------
-Go (Beginner) <br>
-Haskell (Stop-Start) <br>
-Javascript (React) (Stop-Start) <br> 
+Go <br>
+Haskell <br>
