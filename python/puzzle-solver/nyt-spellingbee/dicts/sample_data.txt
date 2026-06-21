@@ -1,0 +1,198 @@
+aalto
+{'syllables': {'count': 2, 'list': ['aal', 'to']}, 'pronunciation': {'all': "'ɑltɔ", 'simplified': 'ɑltɔ'}, 'rhymePatterns': {'all': '-ɑltɔ'}, 'definitions': [{'definition': 'Finnish architect and designer of furniture (1898-1976)', 'partOfSpeech': 'noun', 'synonyms': ['alvar aalto', 'hugo alvar henrik aalto'], 'instanceOf': ['architect', 'designer']}], 'letters': 5, 'sounds': 4, 'frequency': {'zipf': 1.73, 'perMillion': 0.04, 'diversity': 0}}
+aalborg
+{'syllables': {'count': 2, 'list': ['aal', 'borg']}, 'pronunciation': {'all': "'ɔlbɔrg", 'simplified': 'ɔlbɔrg'}, 'rhymePatterns': {'all': '-ɔlbɔrg'}, 'definitions': [{'definition': 'a city and port in northern Jutland', 'partOfSpeech': 'noun', 'synonyms': ['alborg'], 'instanceOf': ['metropolis', 'port', 'urban center', 'city'], 'partOf': ['kingdom of denmark', 'danmark', 'denmark']}], 'letters': 7, 'sounds': 6, 'frequency': {'zipf': 1.82, 'perMillion': 0.05, 'diversity': 0}}
+aardvark
+{'syllables': {'count': 2, 'list': ['aard', 'vark']}, 'pronunciation': {'all': "'ɑrd,vɑrk", 'simplified': 'ɑrdvɑrk'}, 'rhymePatterns': {'all': '-ɑrk'}, 'definitions': [{'definition': 'nocturnal burrowing mammal of the grasslands of Africa that feeds on termites; sole extant representative of the order Tubulidentata', 'partOfSpeech': 'noun', 'synonyms': ['ant bear', 'anteater', 'orycteropus afer'], 'typeOf': ['eutherian', 'eutherian mammal', 'placental', 'placental mammal'], 'memberOf': ['genus orycteropus', 'orycteropus']}], 'letters': 8, 'sounds': 7, 'frequency': {'zipf': 2.2, 'perMillion': 0.15, 'diversity': 0}}
+aarau
+{'syllables': {'count': 2, 'list': ['aar', 'au']}, 'pronunciation': {'all': "'ɑraʊ", 'simplified': 'ɑraʊ'}, 'rhymePatterns': {'all': '-ɑraʊ'}, 'letters': 5, 'sounds': 4}
+aardwolf
+{'syllables': {'count': 2, 'list': ['aard', 'wolf']}, 'pronunciation': {'all': "'ɑrd,wʊlf", 'simplified': 'ɑrdwʊlf'}, 'rhymePatterns': {'all': '-ʊlf'}, 'definitions': [{'definition': 'striped hyena of southeast Africa that feeds chiefly on insects', 'partOfSpeech': 'noun', 'synonyms': ['proteles cristata'], 'typeOf': ['hyaena', 'hyena'], 'memberOf': ['genus proteles', 'proteles']}], 'letters': 8, 'sounds': 7}
+aargau
+{'syllables': {'count': 2, 'list': ['aar', 'gau']}, 'pronunciation': {'all': "'ɑrgaʊ", 'simplified': 'ɑrgaʊ'}, 'rhymePatterns': {'all': '-ɑrgaʊ'}, 'letters': 6, 'sounds': 5}
+aarhus
+{'syllables': {'count': 2, 'list': ['aar', 'hus']}, 'definitions': [{'definition': 'port city of Denmark in eastern Jutland', 'partOfSpeech': 'noun', 'synonyms': ['arhus'], 'instanceOf': ['metropolis', 'port', 'urban center', 'city'], 'partOf': ['kingdom of denmark', 'danmark', 'denmark']}], 'letters': 6, 'frequency': {'zipf': 2.3, 'perMillion': 0.19, 'diversity': 0}}
+aaron
+{'syllables': {'count': 2, 'list': ['aa', 'ron']}, 'pronunciation': {'all': "'ɜrən", 'simplified': 'ɜrən'}, 'rhymePatterns': {'all': '-ɜrən'}, 'definitions': [{'definition': 'United States professional baseball player who hit more home runs than Babe Ruth (born in 1934)', 'partOfSpeech': 'noun', 'synonyms': ['hank aaron', 'henry louis aaron'], 'instanceOf': ['ballplayer', 'baseball player']}, {'definition': '(Old Testament) elder brother of Moses and first high priest of the Israelites; created the golden calf', 'partOfSpeech': 'noun', 'inCategory': ['old testament'], 'instanceOf': ['priest']}], 'letters': 5, 'sounds': 4, 'frequency': {'zipf': 4.06, 'perMillion': 11.49, 'diversity': 0.01}}
+aachen
+{'syllables': {'count': 2, 'list': ['aa', 'chen']}, 'pronunciation': {'all': "'ɑkən", 'simplified': 'ɑkən'}, 'rhymePatterns': {'all': '-ɑkən'}, 'definitions': [{'definition': "a city in western Germany near the Dutch and Belgian borders; formerly it was Charlemagne's northern capital", 'partOfSpeech': 'noun', 'synonyms': ['aix-la-chapelle', 'aken'], 'instanceOf': ['city', 'metropolis', 'urban center'], 'partOf': ['germany', 'frg', 'deutschland', 'federal republic of germany']}], 'letters': 6, 'sounds': 4, 'frequency': {'zipf': 2.2, 'perMillion': 0.15, 'diversity': 0}}
+aaronitic
+{'syllables': {'count': 4, 'list': ['aar', 'on', 'it', 'ic']}, 'pronunciation': {'all': ',ɜr,ənɪtɪk', 'simplified': 'ɜrənɪtɪk'}, 'rhymePatterns': {'all': '-ənɪtɪk'}, 'letters': 9, 'sounds': 8}
+aalii
+{'syllables': {'count': 3, 'list': ['aa', 'li', 'i']}, 'pronunciation': {'all': "ɑ'lii", 'simplified': 'ɑlii'}, 'rhymePatterns': {'all': '-ii'}, 'definitions': [{'definition': 'a small Hawaiian tree with hard dark wood', 'partOfSpeech': 'noun', 'typeOf': ['tree'], 'memberOf': ['dodonaea', 'genus dodonaea']}], 'letters': 5, 'sounds': 4}
+aalesund
+{'syllables': {'count': 3, 'list': ['aa', 'le', 'sund']}, 'pronunciation': {'all': "'ɔlə,sʊn", 'simplified': 'ɔləsʊn'}, 'rhymePatterns': {'all': '-ʊn'}, 'letters': 8, 'sounds': 6}
+aaronic
+{'syllables': {'count': 3, 'list': ['aa', 'ron', 'ic']}, 'pronunciation': {'all': "ɜ'rɑnɪk", 'simplified': 'ɜrɑnɪk'}, 'rhymePatterns': {'all': '-ɑnɪk'}, 'letters': 7, 'sounds': 6}
+aaronite
+{'syllables': {'count': 3, 'list': ['aa', 'ron', 'ite']}, 'pronunciation': {'all': "'ɜrə,naɪt", 'simplified': 'ɜrənaɪt'}, 'rhymePatterns': {'all': '-aɪt'}, 'letters': 8, 'sounds': 7}
+abb
+{'syllables': {'count': 3, 'list': ['ab', 'b', '']}, 'pronunciation': {'all': 'æb', 'simplified': 'æb'}, 'rhymePatterns': {'all': '-æb'}, 'definitions': [{'definition': 'an urban hit squad and guerrilla group of the Communist Party in the Philippines; formed in the 1980s', 'partOfSpeech': 'noun', 'synonyms': ['alex boncayao brigade', 'revolutionary proletarian army', 'rpa-abb'], 'inCategory': ['terrorist act', 'act of terrorism', 'terrorism'], 'inRegion': ['republic of the philippines', 'philippines'], 'instanceOf': ['fto', 'foreign terrorist organization', 'terrorist group', 'terrorist organization']}], 'letters': 3, 'sounds': 2, 'frequency': {'zipf': 1.73, 'perMillion': 0.04, 'diversity': 0}}
+aaronical
+{'syllables': {'count': 4, 'list': ['aa', 'ron', 'i', 'cal']}, 'pronunciation': {'all': "ɜ'rɑnɪkəl", 'simplified': 'ɜrɑnɪkəl'}, 'rhymePatterns': {'all': '-ɑnɪkəl'}, 'letters': 9, 'sounds': 8}
+abbevillian
+{'syllables': {'count': 4, 'list': ['abbe', 'vill', 'i', 'an']}, 'pronunciation': {'all': "æb'vɪliən", 'simplified': 'æbvɪliən'}, 'rhymePatterns': {'all': '-ɪliən'}, 'letters': 11, 'sounds': 8}
+abbr
+{'syllables': {'count': 1, 'list': ['abbr']}, 'letters': 4}
+abbrev
+{'syllables': {'count': 1, 'list': ['abbrev']}, 'letters': 6}
+abbevilean
+{'syllables': {'count': 4, 'list': ['abbe', 'vil', 'e', 'an']}, 'letters': 10}
+abl
+{'syllables': {'count': 1, 'list': ['abl']}, 'letters': 3}
+abr
+{'syllables': {'count': 1, 'list': ['abr']}, 'letters': 3}
+abp
+{'syllables': {'count': 1, 'list': ['abp']}, 'letters': 3}
+absinth
+{'syllables': {'count': 2, 'list': ['ab', 'sinth']}, 'pronunciation': {'all': "'æbsɪnθ", 'simplified': 'æbsɪnθ'}, 'rhymePatterns': {'all': '-æbsɪnθ'}, 'definitions': [{'definition': 'strong green liqueur flavored with wormwood and anise', 'partOfSpeech': 'noun', 'synonyms': ['absinthe'], 'typeOf': ['liqueur', 'cordial'], 'hasSubstances': ['anise seed', 'aniseed', 'artemisia absinthium', 'common wormwood', "lad's love", 'absinthe', 'old man', 'anise']}], 'letters': 7, 'sounds': 6, 'frequency': {'zipf': 1.6, 'perMillion': 0.03, 'diversity': 0}}
+aba
+{'syllables': {'count': 2, 'list': ['a', 'ba']}, 'pronunciation': {'all': "ə'bɑ", 'simplified': 'əbɑ'}, 'rhymePatterns': {'all': '-ɑ'}, 'definitions': [{'definition': 'a fabric woven from goat hair and camel hair', 'partOfSpeech': 'noun', 'typeOf': ['cloth', 'fabric', 'material', 'textile']}, {'definition': 'a loose sleeveless outer garment made from aba cloth; worn by Arabs', 'partOfSpeech': 'noun', 'typeOf': ['outer garment', 'overgarment']}], 'letters': 3, 'sounds': 3, 'frequency': {'zipf': 2.94, 'perMillion': 0.85, 'diversity': 0}}
+abactinal
+{'syllables': {'count': 4, 'list': ['ab', 'ac', 'ti', 'nal']}, 'definitions': [{'definition': '(of radiate animals) located on the surface or end opposite to that on which the mouth is situated', 'partOfSpeech': None, 'antonyms': ['actinal']}], 'letters': 9}
+abamp
+{'syllables': {'count': 2, 'list': ['ab', 'amp']}, 'pronunciation': {'all': "'æb,æmp", 'simplified': 'æbæmp'}, 'rhymePatterns': {'all': '-æmp'}, 'definitions': [{'definition': 'a unit of current equal to 10 amperes', 'partOfSpeech': 'noun', 'synonyms': ['abampere'], 'typeOf': ['current unit'], 'hasParts': ['a', 'amp', 'ampere']}], 'letters': 5, 'sounds': 5}
+abattoir
+{'syllables': {'count': 3, 'list': ['ab', 'at', 'toir']}, 'pronunciation': {'all': ",æbə'twɑr", 'simplified': 'æbətwɑr'}, 'rhymePatterns': {'all': '-ɑr'}, 'definitions': [{'definition': 'a building where animals are butchered', 'partOfSpeech': 'noun', 'synonyms': ['butchery', 'shambles', 'slaughterhouse'], 'typeOf': ['building', 'edifice']}], 'letters': 8, 'sounds': 7, 'frequency': {'zipf': 2.59, 'perMillion': 0.37, 'diversity': 0}}
+abaptiston
+{'syllables': {'count': 4, 'list': ['ab', 'ap', 'tis', 'ton']}, 'pronunciation': {'all': ",æbæp'tɪstən", 'simplified': 'æbæptɪstən'}, 'rhymePatterns': {'all': '-ɪstən'}, 'letters': 10, 'sounds': 10}
+abampere
+{'syllables': {'count': 3, 'list': ['ab', 'am', 'pere']}, 'pronunciation': {'all': "æb'æmpir", 'simplified': 'æbæmpir'}, 'rhymePatterns': {'all': '-æmpir'}, 'definitions': [{'definition': 'a unit of current equal to 10 amperes', 'partOfSpeech': 'noun', 'synonyms': ['abamp'], 'typeOf': ['current unit'], 'hasParts': ['a', 'amp', 'ampere']}], 'letters': 8, 'sounds': 7}
+abattis
+{'syllables': {'count': 3, 'list': ['ab', 'at', 'tis']}, 'definitions': [{'definition': 'a line of defense consisting of a barrier of felled or live trees with branches (sharpened or with barbed wire entwined) pointed toward the enemy', 'partOfSpeech': 'noun', 'synonyms': ['abatis'], 'typeOf': ['line of defence', 'line of defense']}], 'letters': 7}
+abaxial
+{'syllables': {'count': 4, 'list': ['ab', 'ax', 'i', 'al']}, 'pronunciation': {'all': "æb'æksiəl", 'simplified': 'æbæksiəl'}, 'rhymePatterns': {'all': '-æksiəl'}, 'definitions': [{'definition': 'facing away from the axis of an organ or organism', 'partOfSpeech': 'adjective', 'synonyms': ['dorsal'], 'inCategory': ['biological science', 'biology'], 'antonyms': ['adaxial'], 'examples': ['the abaxial surface of a leaf is the underside or side facing away from the stem']}], 'letters': 7, 'sounds': 8}
+abacisci
+{'syllables': {'count': 4, 'list': ['ab', 'a', 'cis', 'ci']}, 'letters': 8}
+abacist
+{'syllables': {'count': 3, 'list': ['ab', 'a', 'cist']}, 'pronunciation': {'all': "'æbəsɪst", 'simplified': 'æbəsɪst'}, 'rhymePatterns': {'all': '-æbəsɪst'}, 'letters': 7, 'sounds': 7}
+abaca
+{'syllables': {'count': 3, 'list': ['a', 'ba', 'ca']}, 'pronunciation': {'all': ",ɑbɑ'kɑ", 'simplified': 'ɑbɑkɑ'}, 'rhymePatterns': {'all': '-ɑ'}, 'definitions': [{'definition': 'a kind of hemp obtained from the abaca plant in the Philippines', 'partOfSpeech': 'noun', 'synonyms': ['manila hemp', 'manilla hemp'], 'typeOf': ['hemp']}, {'definition': 'Philippine banana tree having leafstalks that yield Manila hemp used for rope and paper etc', 'partOfSpeech': 'noun', 'synonyms': ['manila hemp', 'musa textilis'], 'typeOf': ['banana', 'banana tree']}], 'letters': 5, 'sounds': 5, 'frequency': 1.74}
+abaciscus
+{'syllables': {'count': 4, 'list': ['ab', 'a', 'cis', 'cus']}, 'pronunciation': {'all': ",æbə'sɪskəs", 'simplified': 'æbəsɪskəs'}, 'rhymePatterns': {'all': '-ɪskəs'}, 'letters': 9, 'sounds': 9}
+abaci
+{'syllables': {'count': 3, 'list': ['ab', 'a', 'ci']}, 'pronunciation': {'all': "'æbə,saɪ", 'simplified': 'æbəsaɪ'}, 'rhymePatterns': {'all': '-aɪ'}, 'letters': 5, 'sounds': 6}
+abacus
+{'syllables': {'count': 3, 'list': ['ab', 'a', 'cus']}, 'pronunciation': {'all': "'æbəkəs", 'simplified': 'æbəkəs'}, 'rhymePatterns': {'all': '-æbəkəs'}, 'definitions': [{'definition': 'a calculator that performs arithmetic functions by manually sliding counters on rods or in grooves', 'partOfSpeech': 'noun', 'typeOf': ['calculating machine', 'calculator']}, {'definition': 'a tablet placed horizontally on top of the capital of a column as an aid in supporting the architrave', 'partOfSpeech': 'noun', 'typeOf': ['tablet']}], 'letters': 6, 'sounds': 6, 'frequency': {'zipf': 2.27, 'perMillion': 0.17, 'diversity': 0}}
+abadan
+{'syllables': {'count': 3, 'list': ['a', 'ba', 'dan']}, 'pronunciation': {'all': "ɑbə'dɑn", 'simplified': 'ɑbədɑn'}, 'rhymePatterns': {'all': '-ɑn'}, 'definitions': [{'definition': 'a port city in southwestern Iran', 'partOfSpeech': 'noun', 'instanceOf': ['metropolis', 'city', 'port', 'urban center'], 'partOf': ['iran', 'islamic republic of iran', 'persia']}], 'letters': 6, 'sounds': 6}
+abaco
+{'syllables': {'count': 3, 'list': ['ab', 'a', 'co']}, 'pronunciation': {'all': "'æbə,koʊ", 'simplified': 'æbəkoʊ'}, 'rhymePatterns': {'all': '-oʊ'}, 'letters': 5, 'sounds': 6}
+abacuses
+{'syllables': {'count': 4, 'list': ['ab', 'a', 'cus', 'es']}, 'letters': 8, 'frequency': 1.74}
+abalone
+{'syllables': {'count': 4, 'list': ['ab', 'a', 'lo', 'ne']}, 'pronunciation': {'all': ",æbə'loʊni", 'simplified': 'æbəloʊni'}, 'rhymePatterns': {'all': '-oʊni'}, 'definitions': [{'definition': 'any of various large edible marine gastropods of the genus Haliotis having an ear-shaped shell with pearly interior', 'partOfSpeech': 'noun', 'synonyms': ['ear-shell'], 'typeOf': ['gastropod', 'univalve'], 'hasTypes': ['haliotis tuberculata', 'ormer', 'sea-ear'], 'memberOf': ['haliotis', 'genus haliotis']}], 'letters': 7, 'sounds': 8, 'frequency': {'zipf': 2.99, 'perMillion': 0.96, 'diversity': 0}}
+abaris
+{'syllables': {'count': 3, 'list': ['ab', 'a', 'ris']}, 'pronunciation': {'all': "'æbərɪs", 'simplified': 'æbərɪs'}, 'rhymePatterns': {'all': '-æbərɪs'}, 'letters': 6, 'sounds': 6}
+abatis
+{'syllables': {'count': 3, 'list': ['ab', 'a', 'tis']}, 'pronunciation': {'all': "'æbə,ti", 'simplified': 'æbəti'}, 'rhymePatterns': {'all': '-i'}, 'definitions': [{'definition': 'a line of defense consisting of a barrier of felled or live trees with branches (sharpened or with barbed wire entwined) pointed toward the enemy', 'partOfSpeech': 'noun', 'synonyms': ['abattis'], 'typeOf': ['line of defence', 'line of defense']}], 'letters': 6, 'sounds': 5}
+abba
+{'syllables': {'count': 2, 'list': ['ab', 'ba']}, 'pronunciation': {'all': "ə'bɑ", 'simplified': 'əbɑ'}, 'rhymePatterns': {'all': '-ɑ'}, 'letters': 4, 'sounds': 3, 'frequency': {'zipf': 3.28, 'perMillion': 1.88, 'diversity': 0}}
+abbasid
+{'syllables': {'count': 3, 'list': ['ab', 'bas', 'id']}, 'pronunciation': {'all': "'æbəsɪd", 'simplified': 'æbəsɪd'}, 'rhymePatterns': {'all': '-æbəsɪd'}, 'letters': 7, 'sounds': 6, 'frequency': {'zipf': 1.9, 'perMillion': 0.07, 'diversity': 0}}
+abbai
+{'syllables': {'count': 2, 'list': ['ab', 'bai']}, 'pronunciation': {'all': "ɑ'baɪ", 'simplified': 'ɑbaɪ'}, 'rhymePatterns': {'all': '-aɪ'}, 'letters': 5, 'sounds': 4}
+abbassid
+{'syllables': {'count': 3, 'list': ['ab', 'bas', 'sid']}, 'letters': 8}
+abbacy
+{'syllables': {'count': 3, 'list': ['ab', 'ba', 'cy']}, 'pronunciation': {'all': "'æbəsi", 'simplified': 'æbəsi'}, 'rhymePatterns': {'all': '-æbəsi'}, 'definitions': [{'definition': 'the jurisdiction or office of an abbot', 'partOfSpeech': 'noun', 'typeOf': ['jurisdiction']}], 'letters': 6, 'sounds': 5}
+abbasside
+{'syllables': {'count': 3, 'list': ['ab', 'bas', 'side']}, 'pronunciation': {'all': "'æbə,saɪd", 'simplified': 'æbəsaɪd'}, 'rhymePatterns': {'all': '-aɪd'}, 'letters': 9, 'sounds': 7}
+abbatial
+{'syllables': {'count': 3, 'list': ['ab', 'ba', 'tial']}, 'pronunciation': {'all': "ə'beɪʃəl", 'simplified': 'əbeɪʃəl'}, 'rhymePatterns': {'all': '-eɪʃəl'}, 'definitions': [{'definition': 'of or having to do with or belonging to an abbey or abbot, or abbess', 'partOfSpeech': None, 'pertainsTo': ['abbey'], 'derivation': ['abbess', 'abbey', 'abbot']}], 'letters': 8, 'sounds': 7}
+abbey
+{'syllables': {'count': 2, 'list': ['ab', 'bey']}, 'pronunciation': {'all': "'æbi", 'simplified': 'æbi'}, 'rhymePatterns': {'all': '-æbi'}, 'definitions': [{'definition': 'a church associated with a monastery or convent', 'partOfSpeech': 'noun', 'typeOf': ['church', 'church building'], 'derivation': ['abbatial']}, {'definition': 'a convent ruled by an abbess', 'partOfSpeech': 'noun', 'typeOf': ['convent'], 'derivation': ['abbatial']}, {'definition': 'a monastery ruled by an abbot', 'partOfSpeech': 'noun', 'typeOf': ['monastery'], 'derivation': ['abbatial']}], 'letters': 5, 'sounds': 3, 'frequency': {'zipf': 3.48, 'perMillion': 2.97, 'diversity': 0.01}}
+abbe
+{'syllables': {'count': 2, 'list': ['ab', 'be']}, 'pronunciation': {'all': "æ'beɪ", 'simplified': 'æbeɪ'}, 'rhymePatterns': {'all': '-eɪ'}, 'definitions': [{'definition': 'a French abbot', 'partOfSpeech': 'noun', 'typeOf': ['abbot', 'archimandrite']}], 'letters': 4, 'sounds': 4, 'frequency': 2.02}
+abbeystead
+{'syllables': {'count': 3, 'list': ['ab', 'bey', 'stead']}, 'pronunciation': {'all': "'æbi,stɛd", 'simplified': 'æbistɛd'}, 'rhymePatterns': {'all': '-ɛd'}, 'letters': 10, 'sounds': 7}
+abbess
+{'syllables': {'count': 2, 'list': ['ab', 'bess']}, 'pronunciation': {'all': "'æbɪs", 'simplified': 'æbɪs'}, 'rhymePatterns': {'all': '-æbɪs'}, 'definitions': [{'definition': 'the superior of a group of nuns', 'partOfSpeech': 'noun', 'synonyms': ['mother superior', 'prioress'], 'typeOf': ['superior'], 'hasTypes': ['mother'], 'hasInstances': ['brigid', 'heloise', 'saint bride', 'bride', 'saint brigid', 'st. bride', 'st. bridget', 'st. brigid', 'saint bridget', 'bridget'], 'derivation': ['abbatial']}], 'letters': 6, 'sounds': 4, 'frequency': {'zipf': 2.47, 'perMillion': 0.28, 'diversity': 0}}
+abbeville
+{'syllables': {'count': 3, 'list': ['ab', 'be', 'ville']}, 'pronunciation': {'all': "'æbivɪl", 'simplified': 'æbivɪl'}, 'rhymePatterns': {'all': '-æbivɪl'}, 'letters': 9, 'sounds': 6, 'frequency': {'zipf': 1.82, 'perMillion': 0.05, 'diversity': 0}}
+abbeystede
+{'syllables': {'count': 3, 'list': ['ab', 'bey', 'stede']}, 'letters': 10}
+abbot
+{'syllables': {'count': 2, 'list': ['ab', 'bot']}, 'pronunciation': {'all': "'æbət", 'simplified': 'æbət'}, 'rhymePatterns': {'all': '-æbət'}, 'definitions': [{'definition': 'the superior of an abbey of monks', 'partOfSpeech': 'noun', 'synonyms': ['archimandrite'], 'typeOf': ['superior'], 'hasTypes': ['abbe'], 'derivation': ['abbatial']}], 'letters': 5, 'sounds': 4, 'frequency': {'zipf': 3.1, 'perMillion': 1.24, 'diversity': 0}}
+abbotsford
+{'syllables': {'count': 3, 'list': ['ab', 'bots', 'ford']}, 'pronunciation': {'all': "'æbətsfɑrd", 'simplified': 'æbətsfɑrd'}, 'rhymePatterns': {'all': '-æbətsfɑrd'}, 'letters': 10, 'sounds': 9}
+abbie
+{'syllables': {'count': 2, 'list': ['ab', 'bie']}, 'pronunciation': {'all': "'æbi", 'simplified': 'æbi'}, 'rhymePatterns': {'all': '-æbi'}, 'letters': 5, 'sounds': 3, 'frequency': {'zipf': 2.81, 'perMillion': 0.64, 'diversity': 0}}
+abbott
+{'syllables': {'count': 2, 'list': ['ab', 'bott']}, 'pronunciation': {'all': "'æbət", 'simplified': 'æbət'}, 'rhymePatterns': {'all': '-æbət'}, 'letters': 6, 'sounds': 4, 'frequency': {'zipf': 3.04, 'perMillion': 1.09, 'diversity': 0}}
+abbotship
+{'syllables': {'count': 3, 'list': ['ab', 'bot', 'ship']}, 'letters': 9}
+abbotcy
+{'syllables': {'count': 3, 'list': ['ab', 'bot', 'cy']}, 'letters': 7}
+abboud
+{'syllables': {'count': 2, 'list': ['ab', 'boud']}, 'pronunciation': {'all': "ɑ'bud", 'simplified': 'ɑbud'}, 'rhymePatterns': {'all': '-ud'}, 'letters': 6, 'sounds': 4}
+abbreviated
+{'syllables': {'count': 5, 'list': ['ab', 'bre', 'vi', 'at', 'ed']}, 'pronunciation': {'all': "ə'brivi,eɪtɪd", 'simplified': 'əbrivieɪtɪd'}, 'rhymePatterns': {'all': '-eɪtɪd'}, 'definitions': [{'definition': '(of clothing) very short', 'partOfSpeech': 'adjective', 'synonyms': ['brief'], 'similarTo': ['short'], 'examples': ['an abbreviated swimsuit']}, {'definition': 'cut short in duration', 'partOfSpeech': 'adjective', 'synonyms': ['shortened', 'truncated'], 'similarTo': ['short'], 'examples': ['the abbreviated speech']}], 'letters': 11, 'sounds': 11, 'frequency': {'zipf': 2.27, 'perMillion': 0.17, 'diversity': 0}}
+abbreviate
+{'syllables': {'count': 4, 'list': ['ab', 'bre', 'vi', 'ate']}, 'pronunciation': {'all': "ə'brivi,eɪt", 'simplified': 'əbrivieɪt'}, 'rhymePatterns': {'all': '-eɪt'}, 'definitions': [{'definition': 'reduce in scope while retaining essential elements', 'partOfSpeech': 'verb', 'synonyms': ['abridge', 'contract', 'cut', 'foreshorten', 'reduce', 'shorten'], 'typeOf': ['decrease', 'minify', 'lessen'], 'hasTypes': ['concentrate', 'condense', 'digest', 'shorten', 'bowdlerize', 'castrate', 'expurgate', 'bowdlerise'], 'verbGroup': ['edit', 'cut', 'edit out'], 'derivation': ['abbreviator']}, {'definition': 'shorten', 'partOfSpeech': 'verb', 'typeOf': ['reduce'], 'derivation': ['abbreviation', 'abbreviator']}], 'letters': 10, 'sounds': 9, 'frequency': 1.74}
+abbreviating
+{'syllables': {'count': 5, 'list': ['ab', 'bre', 'vi', 'at', 'ing']}, 'letters': 12, 'pronunciation': "ʌ'brivi,eɪtɪŋ"}
+abby
+{'syllables': {'count': 2, 'list': ['ab', 'by']}, 'pronunciation': {'all': 'æbi', 'simplified': 'æbi'}, 'rhymePatterns': {'all': '-æbi'}, 'letters': 4, 'sounds': 3, 'frequency': {'zipf': 4, 'perMillion': 10.01, 'diversity': 0.01}}
+abbreviation
+{'syllables': {'count': 5, 'list': ['ab', 'bre', 'vi', 'a', 'tion']}, 'pronunciation': {'all': "ə,brivi'eɪʃən", 'simplified': 'əbrivieɪʃən'}, 'rhymePatterns': {'all': '-eɪʃən'}, 'definitions': [{'definition': 'a shortened form of a word or phrase', 'partOfSpeech': 'noun', 'hasUsages': ['appro'], 'typeOf': ['word form', 'signifier', 'descriptor', 'form'], 'hasTypes': ['initialism', 'apocope'], 'derivation': ['abbreviate']}, {'definition': 'shortening something by omitting parts of it', 'partOfSpeech': 'noun', 'typeOf': ['shortening']}], 'letters': 12, 'sounds': 11, 'frequency': {'zipf': 2.5, 'perMillion': 0.31, 'diversity': 0}}
+abbreviator
+{'syllables': {'count': 5, 'list': ['ab', 'bre', 'vi', 'a', 'tor']}, 'definitions': [{'definition': 'one who shortens or abridges or condenses a written work', 'partOfSpeech': 'noun', 'synonyms': ['abridger'], 'typeOf': ['redact', 'redactor', 'reviser', 'rewrite man', 'rewriter'], 'derivation': ['abbreviate']}], 'letters': 11}
+abbs
+{'syllables': {'count': 3, 'list': ['ab', 'b', 's']}, 'letters': 4, 'frequency': {'zipf': 1.82, 'perMillion': 0.05, 'diversity': 0}, 'pronunciation': 'æbz'}
+abcoulomb
+{'syllables': {'count': 3, 'list': ['ab', 'cou', 'lomb']}, 'pronunciation': {'all': "æb'kulɑm", 'simplified': 'æbkulɑm'}, 'rhymePatterns': {'all': '-ulɑm'}, 'definitions': [{'definition': 'a unit of electrical charge equal to 10 coulombs', 'partOfSpeech': 'noun', 'typeOf': ['charge unit', 'quantity unit'], 'hasParts': ['ampere-second', 'c', 'coulomb']}], 'letters': 9, 'sounds': 7}
+abdicant
+{'syllables': {'count': 3, 'list': ['ab', 'di', 'cant']}, 'pronunciation': {'all': "'æbdəkənt", 'simplified': 'æbdəkənt'}, 'rhymePatterns': {'all': '-æbdəkənt'}, 'letters': 8, 'sounds': 8}
+abderus
+{'syllables': {'count': 3, 'list': ['ab', 'de', 'rus']}, 'pronunciation': {'all': "æb'dirəs", 'simplified': 'æbdirəs'}, 'rhymePatterns': {'all': '-irəs'}, 'letters': 7, 'sounds': 7}
+abderhalden
+{'syllables': {'count': 4, 'list': ['ab', 'der', 'hal', 'den']}, 'pronunciation': {'all': "'ɑpdəR,hɑldən", 'simplified': 'ɑpdəRhɑldən'}, 'rhymePatterns': {'all': '-ɑldən'}, 'letters': 11, 'sounds': 11}
+abdicated
+{'syllables': {'count': 4, 'list': ['ab', 'di', 'cat', 'ed']}, 'letters': 9, 'frequency': {'zipf': 2.27, 'perMillion': 0.17, 'diversity': 0}, 'pronunciation': "'æbdʌ,keɪtʌd"}
+abdias
+{'syllables': {'count': 3, 'list': ['ab', 'di', 'as']}, 'pronunciation': {'all': "æb'daɪəs", 'simplified': 'æbdaɪəs'}, 'rhymePatterns': {'all': '-aɪəs'}, 'definitions': [{'definition': "an Old Testament book telling Obadiah's prophecies; the shortest book in the Christian Bible", 'partOfSpeech': 'noun', 'synonyms': ['book of obadiah', 'obadiah'], 'instanceOf': ['book'], 'partOf': ['nebiim', 'old testament', 'prophets']}, {'definition': 'a Hebrew minor prophet', 'partOfSpeech': 'noun', 'synonyms': ['obadiah'], 'instanceOf': ['prophet']}], 'letters': 6, 'sounds': 7}
+abdicate
+{'syllables': {'count': 3, 'list': ['ab', 'di', 'cate']}, 'pronunciation': {'all': "'æbdə,keɪt", 'simplified': 'æbdəkeɪt'}, 'rhymePatterns': {'all': '-eɪt'}, 'definitions': [{'definition': 'give up, such as power, as of monarchs and emperors, or duties and obligations', 'partOfSpeech': 'verb', 'synonyms': ['renounce'], 'typeOf': ['give up', 'renounce', 'resign', 'vacate'], 'derivation': ['abdicable', 'abdication', 'abdicator'], 'examples': ['The King abdicated when he married a divorcee']}], 'letters': 8, 'sounds': 8, 'frequency': {'zipf': 2.38, 'perMillion': 0.23, 'diversity': 0}}
+abdication
+{'syllables': {'count': 4, 'list': ['ab', 'di', 'ca', 'tion']}, 'pronunciation': {'all': ",æbdə'keɪʃən", 'simplified': 'æbdəkeɪʃən'}, 'rhymePatterns': {'all': '-eɪʃən'}, 'definitions': [{'definition': 'the act of abdicating', 'partOfSpeech': 'noun', 'synonyms': ['stepping down'], 'typeOf': ['resignation'], 'derivation': ['abdicate']}, {'definition': 'a formal resignation and renunciation of powers', 'partOfSpeech': 'noun', 'synonyms': ['stepping down'], 'typeOf': ['resignation'], 'derivation': ['abdicate']}], 'letters': 10, 'sounds': 10, 'frequency': {'zipf': 2.27, 'perMillion': 0.17, 'diversity': 0}}
+abdicable
+{'syllables': {'count': 4, 'list': ['ab', 'di', 'ca', 'ble']}, 'definitions': [{'definition': 'capable of being discarded or renounced or relinquished', 'partOfSpeech': 'adjective', 'similarTo': ['unwanted'], 'derivation': ['abdicate'], 'examples': ['abdicable responsibilites']}], 'letters': 9}
+abdicative
+{'syllables': {'count': 4, 'list': ['ab', 'di', 'ca', 'tive']}, 'pronunciation': {'all': "'æbdə,keɪtɪv", 'simplified': 'æbdəkeɪtɪv'}, 'rhymePatterns': {'all': '-eɪtɪv'}, 'letters': 10, 'sounds': 10}
+abdicator
+{'syllables': {'count': 4, 'list': ['ab', 'di', 'ca', 'tor']}, 'definitions': [{'definition': 'one who formally relinquishes an office or responsibility', 'partOfSpeech': 'noun', 'typeOf': ['quitter'], 'derivation': ['abdicate']}], 'letters': 9}
+abdominally
+{'syllables': {'count': 5, 'list': ['ab', 'dom', 'i', 'nal', 'ly']}, 'pronunciation': {'all': "æb'dɑmɪnəli", 'simplified': 'æbdɑmɪnəli'}, 'rhymePatterns': {'all': '-ɑmɪnəli'}, 'letters': 11, 'sounds': 10}
+abdicating
+{'syllables': {'count': 4, 'list': ['ab', 'di', 'cat', 'ing']}, 'letters': 10, 'frequency': {'zipf': 1.97, 'perMillion': 0.08, 'diversity': 0}, 'pronunciation': "'æbdɪ,keɪtɪŋ"}
+abdominal
+{'syllables': {'count': 4, 'list': ['ab', 'dom', 'i', 'nal']}, 'pronunciation': {'all': "æb'dɑmənəl", 'simplified': 'æbdɑmənəl'}, 'rhymePatterns': {'all': '-ɑmənəl'}, 'definitions': [{'definition': 'the muscles of the abdomen', 'partOfSpeech': 'noun', 'synonyms': ['ab', 'abdominal muscle'], 'typeOf': ['skeletal muscle', 'striated muscle'], 'hasTypes': ['transversus abdominis muscle', 'external oblique muscle', 'musculus obliquus externus abdominis', 'transverse muscle of abdomen', 'oblique', 'abdominal external oblique muscle', 'musculus transversalis abdominis', 'transversus abdominis'], 'partOf': ['venter', 'belly', 'stomach', 'abdomen']}, {'definition': 'of or relating to or near the abdomen', 'partOfSpeech': None, 'pertainsTo': ['abdomen'], 'derivation': ['abdomen'], 'examples': ['abdominal muscles']}], 'letters': 9, 'sounds': 9, 'frequency': {'zipf': 3.08, 'perMillion': 1.19, 'diversity': 0.01}}
+abdominous
+{'syllables': {'count': 4, 'list': ['ab', 'dom', 'i', 'nous']}, 'pronunciation': {'all': "æb'dɑmənəs", 'simplified': 'æbdɑmənəs'}, 'rhymePatterns': {'all': '-ɑmənəs'}, 'definitions': [{'definition': 'having a large belly', 'partOfSpeech': 'adjective', 'synonyms': ['paunchy', 'potbellied'], 'similarTo': ['fat'], 'derivation': ['abdominousness']}], 'letters': 10, 'sounds': 9}
+abduce
+{'syllables': {'count': 2, 'list': ['ab', 'duce']}, 'pronunciation': {'all': "æb'dus", 'simplified': 'æbdus'}, 'rhymePatterns': {'all': '-us'}, 'definitions': [{'definition': 'advance evidence for', 'partOfSpeech': 'verb', 'synonyms': ['adduce', 'cite'], 'typeOf': ['bear witness', 'evidence', 'prove', 'show', 'testify']}], 'letters': 6, 'sounds': 5}
+abdomen
+{'syllables': {'count': 3, 'list': ['ab', 'do', 'men']}, 'pronunciation': {'all': "'æbdəmən", 'simplified': 'æbdəmən'}, 'rhymePatterns': {'all': '-æbdəmən'}, 'definitions': [{'definition': 'the cavity containing the major viscera; in mammals it is separated from the thorax by the diaphragm', 'partOfSpeech': 'noun', 'synonyms': ['abdominal cavity'], 'typeOf': ['cavity', 'bodily cavity', 'cavum'], 'partOf': ['venter', 'belly', 'stomach'], 'derivation': ['abdominal']}, {'definition': 'the region of the body of a vertebrate between the thorax and the pelvis', 'partOfSpeech': 'noun', 'synonyms': ['belly', 'stomach', 'venter'], 'typeOf': ['body part'], 'hasTypes': ['underbody', 'underbelly'], 'hasParts': ['bellybutton', 'abdominal aorta', 'bowel', 'abdominal', 'colic artery', 'gut', 'hypochondrium', 'intestine', 'navel', 'omphalos', 'omphalus', 'ab', 'abdominal muscle', 'arteria colica', 'belly button', 'umbilicus', 'abdominal cavity', 'abdominal wall'], 'partOf': ['torso', 'trunk', 'body'], 'derivation': ['abdominal']}], 'letters': 7, 'sounds': 7, 'frequency': {'zipf': 3.27, 'perMillion': 1.87, 'diversity': 0.01}}
+abduced
+{'syllables': {'count': 2, 'list': ['ab', 'duced']}, 'letters': 7}
+abdon
+{'syllables': {'count': 2, 'list': ['ab', 'don']}, 'pronunciation': {'all': "'æbdɑn", 'simplified': 'æbdɑn'}, 'rhymePatterns': {'all': '-æbdɑn'}, 'letters': 5, 'sounds': 5}
+abduct
+{'syllables': {'count': 2, 'list': ['ab', 'duct']}, 'pronunciation': {'all': "æb'dəkt", 'simplified': 'æbdəkt'}, 'rhymePatterns': {'all': '-əkt'}, 'definitions': [{'definition': 'take away to an undisclosed location against their will and usually in order to extract a ransom', 'partOfSpeech': 'verb', 'synonyms': ['kidnap', 'nobble', 'snatch'], 'inCategory': ['criminal offense', 'law-breaking', 'crime', 'criminal offence'], 'typeOf': ['seize'], 'hasTypes': ['impress', 'shanghai'], 'derivation': ['abduction', 'abductor']}, {'definition': 'pull away from the body', 'partOfSpeech': 'verb', 'typeOf': ['draw', 'pull'], 'antonyms': ['adduct'], 'derivation': ['abduction', 'abductor'], 'examples': ['this muscle abducts']}], 'letters': 6, 'sounds': 6, 'frequency': {'zipf': 2.88, 'perMillion': 0.75, 'diversity': 0}}
+abducing
+{'syllables': {'count': 3, 'list': ['ab', 'duc', 'ing']}, 'letters': 8}
+abduction
+{'syllables': {'count': 3, 'list': ['ab', 'duc', 'tion']}, 'pronunciation': {'all': "æb'dəkʃən", 'simplified': 'æbdəkʃən'}, 'rhymePatterns': {'all': '-əkʃən'}, 'definitions': [{'definition': '(physiology) moving of a body part away from the central axis of the body', 'partOfSpeech': 'noun', 'inCategory': ['physiology'], 'typeOf': ['motility', 'motion', 'movement', 'move'], 'derivation': ['abduct']}, {'definition': "the criminal act of capturing and carrying away by force a family member; if a man's wife is abducted it is a crime against the family relationship and against the wife", 'partOfSpeech': 'noun', 'typeOf': ['capture', 'seizure'], 'derivation': ['abduct']}], 'letters': 9, 'sounds': 8, 'frequency': {'zipf': 3.3, 'perMillion': 1.97, 'diversity': 0.01}}
+abductor
+{'syllables': {'count': 3, 'list': ['ab', 'duc', 'tor']}, 'pronunciation': {'all': "æb'dəktər", 'simplified': 'æbdəktər'}, 'rhymePatterns': {'all': '-əktər'}, 'definitions': [{'definition': 'a muscle that draws a body part away from the median line', 'partOfSpeech': 'noun', 'synonyms': ['abductor muscle'], 'typeOf': ['skeletal muscle', 'striated muscle'], 'hasTypes': ['musculus abductor digiti minimi manus', 'musculus abductor digiti minimi pedis', 'musculus abductor hallucis', 'musculus abductor pollicis'], 'derivation': ['abduct']}, {'definition': 'someone who unlawfully seizes and detains a victim (usually for ransom)', 'partOfSpeech': 'noun', 'synonyms': ['kidnaper', 'kidnapper', 'snatcher'], 'typeOf': ['crook', 'malefactor', 'captor', 'criminal', 'capturer', 'outlaw', 'felon'], 'hasTypes': ['shanghaier', 'seizer', 'crimp', 'crimper'], 'derivation': ['abduct']}], 'letters': 8, 'sounds': 8, 'frequency': {'zipf': 2.59, 'perMillion': 0.37, 'diversity': 0}}
+abducens
+{'syllables': {'count': 3, 'list': ['ab', 'du', 'cens']}, 'pronunciation': {'all': "æb'dusɛnz", 'simplified': 'æbdusɛnz'}, 'rhymePatterns': {'all': '-usɛnz'}, 'definitions': [{'definition': 'a small motor nerve supplying the lateral rectus muscle of the eye', 'partOfSpeech': 'noun', 'synonyms': ['abducens nerve', 'abducent', 'abducent nerve', 'nervus abducens', 'sixth cranial nerve'], 'typeOf': ['cranial nerve']}], 'letters': 8, 'sounds': 8}
+abducent
+{'syllables': {'count': 3, 'list': ['ab', 'du', 'cent']}, 'pronunciation': {'all': "æb'dusənt", 'simplified': 'æbdusənt'}, 'rhymePatterns': {'all': '-usənt'}, 'definitions': [{'definition': 'especially of muscles; drawing away from the midline of the body or from an adjacent part', 'partOfSpeech': 'adjective', 'synonyms': ['abducting'], 'inCategory': ['physiology'], 'antonyms': ['adducent']}, {'definition': 'a small motor nerve supplying the lateral rectus muscle of the eye', 'partOfSpeech': 'noun', 'synonyms': ['abducens', 'abducens nerve', 'abducent nerve', 'nervus abducens', 'sixth cranial nerve'], 'typeOf': ['cranial nerve']}], 'letters': 8, 'sounds': 8}
+abercrombie
+{'syllables': {'count': 4, 'list': ['ab', 'er', 'crom', 'bie']}, 'pronunciation': {'all': "'æbər,krɑmbi", 'simplified': 'æbərkrɑmbi'}, 'rhymePatterns': {'all': '-ɑmbi'}, 'letters': 11, 'sounds': 10, 'frequency': {'zipf': 2.52, 'perMillion': 0.32, 'diversity': 0}}
+aberdonian
+{'syllables': {'count': 5, 'list': ['ab', 'er', 'do', 'ni', 'an']}, 'pronunciation': {'all': ",æbər'doʊniən", 'simplified': 'æbərdoʊniən'}, 'rhymePatterns': {'all': '-oʊniən'}, 'definitions': [{'definition': 'of or relating to Aberdeen', 'partOfSpeech': None, 'pertainsTo': ['aberdeen'], 'derivation': ['aberdeen']}], 'letters': 10, 'sounds': 11}
+aberdeen
+{'syllables': {'count': 3, 'list': ['ab', 'er', 'deen']}, 'pronunciation': {'all': "'æbər,din", 'simplified': 'æbərdin'}, 'rhymePatterns': {'all': '-in'}, 'definitions': [{'definition': 'a city in northeastern Scotland on the North Sea', 'partOfSpeech': 'noun', 'instanceOf': ['urban center', 'city', 'metropolis'], 'partOf': ['scotland'], 'derivation': ['aberdonian']}, {'definition': 'a town in northeastern Maryland', 'partOfSpeech': 'noun', 'instanceOf': ['town'], 'partOf': ['md', 'md.', 'maryland', 'old line state', 'free state'], 'derivation': ['aberdonian']}, {'definition': 'a town in northeastern South Dakota', 'partOfSpeech': 'noun', 'instanceOf': ['town'], 'partOf': ['south dakota', 'mount rushmore state', 'coyote state', 's.d.', 'sd'], 'derivation': ['aberdonian']}, {'definition': 'a town in western Washington', 'partOfSpeech': 'noun', 'instanceOf': ['port of entry', 'point of entry', 'town'], 'partOf': ['evergreen state', 'wa', 'wash.', 'washington'], 'derivation': ['aberdonian']}], 'letters': 8, 'sounds': 7, 'frequency': {'zipf': 2.75, 'perMillion': 0.55, 'diversity': 0}}
