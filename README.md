@@ -1,8 +1,3 @@
 # language-hobbyist
 
-Getting in touch with my inner programming language hobbyist. Excluding Python and Java here as I'm well past the hobbyist phase in those 2 languages.
-
-Languages to Explore
-------------------------------------------------------------------------
-Go <br>
-Haskell <br>
+Getting in touch with my inner programming language hobbyist. Includes all languages - with no direction except to just explore and implement anything from simple to complex. 
