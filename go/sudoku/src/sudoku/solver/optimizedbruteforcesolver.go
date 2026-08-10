@@ -14,7 +14,7 @@ func NewOptimizedBruteForceSolver(s *sudoku.Sudoku) *OptimizedBruteForceSolver {
 	}
 }
 
-// Main function to solve the Sudoku
-func (s *OptimizedBruteForceSolver) Solve() (float64, [9][9]map[int]bool) {
+// Solve the Sudoku
+func (s *OptimizedBruteForceSolver) Solve() (float64, [9][9]int, error) {
 	panic("Not Implemented")
 }

@@ -9,13 +9,12 @@ type DancingLinksSolver struct {
 }
 
 func NewDancingLinksSolver(s *sudoku.Sudoku) *DancingLinksSolver {
-
 	return &DancingLinksSolver{
 		sudoku: s,
 	}
 }
 
-// Main function to solve the Sudoku
-func (s *DancingLinksSolver) Solve() (float64, [9][9]map[int]bool) {
+// Solve the Sudoku
+func (s *DancingLinksSolver) Solve() (float64, [9][9]int, error) {
 	panic("Not Implemented")
 }
