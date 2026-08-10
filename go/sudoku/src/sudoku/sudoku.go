@@ -3,7 +3,6 @@ package sudoku
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
 )
 
@@ -47,20 +46,19 @@ func estimateDifficulty(board *[9][9]int) Difficulty {
 			}
 		}
 	}
-	if filledCells < 10 {
+	if filledCells < 26 {
 		return Hard
-	} else if filledCells < 20 {
+	} else if filledCells < 32 {
 		return Medium
 	} else {
 		return Easy
 	}
 }
 
-func readBoardFromFile(inputFile string, board *[9][9]int) {
+func readBoardFromFile(inputFile string, board *[9][9]int) error {
 	file, err := os.Open(inputFile)
 	if err != nil {
-		fmt.Println("Error opening file")
-		log.Fatal(err)
+		return fmt.Errorf("error opening file: %w", err)
 	}
 	defer file.Close()
 
@@ -71,11 +69,11 @@ func readBoardFromFile(inputFile string, board *[9][9]int) {
 	lineCtr := 0
 	for scanner.Scan() {
 		if lineCtr > 8 {
-			log.Fatal("Too many lines in the file")
+			return fmt.Errorf("invalid board: too many lines in the file (expected 9)")
 		}
 		line := scanner.Text()
 		if len(line) != 9 {
-			log.Fatal("Line length is not 9")
+			return fmt.Errorf("invalid board: line %d length is %d (expected 9)", lineCtr+1, len(line))
 		}
 		for pos, char := range line {
 			switch char {
@@ -85,7 +83,7 @@ func readBoardFromFile(inputFile string, board *[9][9]int) {
 			case '_':
 				board[lineCtr][pos] = 0
 			default:
-				log.Fatal("Invalid character in line")
+				return fmt.Errorf("invalid board: character %q at line %d position %d is not valid (expected 1-9 or '_')", char, lineCtr+1, pos+1)
 			}
 		}
 		lineCtr++
@@ -93,16 +91,84 @@ func readBoardFromFile(inputFile string, board *[9][9]int) {
 
 	// Check for any errors during scanning
 	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
+		return fmt.Errorf("error reading file: %w", err)
 	}
+
+	if lineCtr < 9 {
+		return fmt.Errorf("invalid board: too few lines in the file (%d lines found, expected 9)", lineCtr)
+	}
+
+	return nil
 }
 
-func initBoard(inputFile string) *Sudoku {
+// Validate checks if the Sudoku board configuration violates any standard Sudoku rules.
+func (s *Sudoku) Validate() error {
+	// check rows
+	for r := 0; r < 9; r++ {
+		seen := 0
+		for c := 0; c < 9; c++ {
+			val := s.board[r][c]
+			if val != 0 {
+				bit := 1 << val
+				if (seen & bit) != 0 {
+					return fmt.Errorf("duplicate value %d found in row %d", val, r+1)
+				}
+				seen |= bit
+			}
+		}
+	}
+	// check columns
+	for c := 0; c < 9; c++ {
+		seen := 0
+		for r := 0; r < 9; r++ {
+			val := s.board[r][c]
+			if val != 0 {
+				bit := 1 << val
+				if (seen & bit) != 0 {
+					return fmt.Errorf("duplicate value %d found in column %d", val, c+1)
+				}
+				seen |= bit
+			}
+		}
+	}
+	// check 3x3 subgrids
+	for box := 0; box < 9; box++ {
+		seen := 0
+		rowStart := (box / 3) * 3
+		colStart := (box % 3) * 3
+		for r := rowStart; r < rowStart+3; r++ {
+			for c := colStart; c < colStart+3; c++ {
+				val := s.board[r][c]
+				if val != 0 {
+					bit := 1 << val
+					if (seen & bit) != 0 {
+						return fmt.Errorf("duplicate value %d found in 3x3 subgrid starting at cell (%d,%d)", val, rowStart+1, colStart+1)
+					}
+					seen |= bit
+				}
+			}
+		}
+	}
+	return nil
+}
+
+// IsValid returns true if the board is valid, false otherwise.
+func (s *Sudoku) IsValid() bool {
+	return s.Validate() == nil
+}
+
+func initBoard(inputFile string) (*Sudoku, error) {
 	board := [9][9]int{}
 	solvedBoard := [9][9]int{}
-	readBoardFromFile(inputFile, &board)
-	CurrentDifficulty := estimateDifficulty(&board)
-	return &Sudoku{board, solvedBoard, CurrentDifficulty}
+	if err := readBoardFromFile(inputFile, &board); err != nil {
+		return nil, err
+	}
+	currentDifficulty := estimateDifficulty(&board)
+	s := &Sudoku{board, solvedBoard, currentDifficulty}
+	if err := s.Validate(); err != nil {
+		return nil, fmt.Errorf("invalid initial board: %w", err)
+	}
+	return s, nil
 }
 
 func (s *Sudoku) PrintBoard() {
@@ -132,6 +198,6 @@ func (s *Sudoku) internalPrintBoard(anyBoard [9][9]int) {
 	fmt.Println()
 }
 
-func NewSudoku(inputFile string) *Sudoku {
+func NewSudoku(inputFile string) (*Sudoku, error) {
 	return initBoard(inputFile)
 }

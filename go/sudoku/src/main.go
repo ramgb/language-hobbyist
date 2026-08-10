@@ -2,20 +2,30 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"sudokusolver/src/sudoku"
 	"sudokusolver/src/sudoku/solver"
 )
 
 func main() {
-	sudoku := sudoku.NewSudoku("data/sudoku/1.txt")
-	sudoku.PrintBoard()
+	s, err := sudoku.NewSudoku("data/sudoku/1.txt")
+	if err != nil {
+		log.Fatalf("Failed to initialize Sudoku: %v", err)
+	}
 
-	solverInstance := solver.NewSolver(sudoku, solver.BruteForceSolverType)
+	fmt.Println("Initial Board:")
+	s.PrintBoard()
 
-	time, guesses := solverInstance.Solve()
-	fmt.Printf("%f seconds", time)
-	fmt.Println()
+	solverInstance := solver.NewSolver(s, solver.BruteForceSolverType)
 
-	sudoku.SetSolvedBoard(solver.GetSolvedBoard(guesses))
-	sudoku.PrintSolvedBoard()
+	duration, solvedBoard, err := solverInstance.Solve()
+	if err != nil {
+		log.Fatalf("Failed to solve Sudoku: %v", err)
+	}
+
+	fmt.Printf("Solved in %f seconds\n\n", duration)
+
+	s.SetSolvedBoard(solvedBoard)
+	fmt.Println("Solved Board:")
+	s.PrintSolvedBoard()
 }
