@@ -1,17 +1,12 @@
 package solver
 
 import (
-	"os"
-	"path/filepath"
 	"strings"
 	"sudokusolver/src/sudoku"
 	"testing"
 )
 
 func TestBruteForceSolve_Success(t *testing.T) {
-	tempDir := t.TempDir()
-	filePath := filepath.Join(tempDir, "board.txt")
-	// Test parser ability to strip newlines and spaces
 	content := []byte(`________9
 1________
 _________
@@ -22,11 +17,15 @@ ____5____
 _________
 _________
 `)
-	if err := os.WriteFile(filePath, content, 0644); err != nil {
-		t.Fatalf("failed to write temp file: %v", err)
+	var sb strings.Builder
+	for _, r := range string(content) {
+		if r == '\n' || r == '\r' || r == ' ' || r == '\t' {
+			continue
+		}
+		sb.WriteRune(r)
 	}
 
-	s, err := sudoku.NewSudoku(filePath)
+	s, err := sudoku.NewSudoku(sb.String())
 	if err != nil {
 		t.Fatalf("expected no error loading board, got %v", err)
 	}
@@ -38,22 +37,18 @@ _________
 	}
 
 	// Verify that the solved board is valid
-	tempFile2 := filepath.Join(tempDir, "solved.txt")
-	var sb strings.Builder
+	var sbSolved strings.Builder
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			if solvedBoard[i][j] == 0 {
-				sb.WriteByte('_')
+				sbSolved.WriteByte('_')
 			} else {
-				sb.WriteByte(byte('0' + solvedBoard[i][j]))
+				sbSolved.WriteByte(byte('0' + solvedBoard[i][j]))
 			}
 		}
 	}
-	if err := os.WriteFile(tempFile2, []byte(sb.String()), 0644); err != nil {
-		t.Fatalf("failed to write solved board: %v", err)
-	}
 
-	_, err = sudoku.NewSudoku(tempFile2)
+	_, err = sudoku.NewSudoku(sbSolved.String())
 	if err != nil {
 		t.Fatalf("solved board is invalid: %v", err)
 	}
@@ -69,10 +64,7 @@ _________
 }
 
 func TestBruteForceSolve_Unsolvable(t *testing.T) {
-	tempDir := t.TempDir()
-	filePath := filepath.Join(tempDir, "unsolvable.txt")
-	// Flat 81-character unsolvable board
-	content := []byte(strings.Join([]string{
+	content := strings.Join([]string{
 		"_12______",
 		"356______",
 		"478______",
@@ -82,12 +74,9 @@ func TestBruteForceSolve_Unsolvable(t *testing.T) {
 		"_________",
 		"_________",
 		"_________",
-	}, ""))
-	if err := os.WriteFile(filePath, content, 0644); err != nil {
-		t.Fatalf("failed to write temp file: %v", err)
-	}
+	}, "")
 
-	s, err := sudoku.NewSudoku(filePath)
+	s, err := sudoku.NewSudoku(content)
 	if err != nil {
 		t.Fatalf("expected no error loading valid layout, got %v", err)
 	}
@@ -104,10 +93,7 @@ func TestBruteForceSolve_Unsolvable(t *testing.T) {
 }
 
 func BenchmarkBruteForceSolve(b *testing.B) {
-	tempDir := b.TempDir()
-	filePath := filepath.Join(tempDir, "board.txt")
-	// Flat 81-character solvable board
-	content := []byte(strings.Join([]string{
+	content := strings.Join([]string{
 		"________9",
 		"1________",
 		"_________",
@@ -117,12 +103,9 @@ func BenchmarkBruteForceSolve(b *testing.B) {
 		"____5____",
 		"_________",
 		"_________",
-	}, ""))
-	if err := os.WriteFile(filePath, content, 0644); err != nil {
-		b.Fatalf("failed to write temp file: %v", err)
-	}
+	}, "")
 
-	s, err := sudoku.NewSudoku(filePath)
+	s, err := sudoku.NewSudoku(content)
 	if err != nil {
 		b.Fatalf("failed to load Sudoku: %v", err)
 	}

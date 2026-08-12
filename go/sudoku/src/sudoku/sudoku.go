@@ -2,8 +2,6 @@ package sudoku
 
 import (
 	"fmt"
-	"os"
-	"strings"
 )
 
 type Difficulty int
@@ -55,27 +53,13 @@ func estimateDifficulty(board *[9][9]int) Difficulty {
 	}
 }
 
-func readBoardFromFile(inputFile string, board *[9][9]int) error {
-	data, err := os.ReadFile(inputFile)
-	if err != nil {
-		return fmt.Errorf("error reading file: %w", err)
+func readBoardFromString(inputBoard string, board *[9][9]int) error {
+
+	if len(inputBoard) != 81 {
+		return fmt.Errorf("invalid board: expected 81 characters, got %d", len(inputBoard))
 	}
 
-	// Strip all newlines, carriage returns, spaces, and tabs
-	var sb strings.Builder
-	for _, r := range string(data) {
-		if r == '\n' || r == '\r' || r == ' ' || r == '\t' {
-			continue
-		}
-		sb.WriteRune(r)
-	}
-	cleaned := sb.String()
-
-	if len(cleaned) != 81 {
-		return fmt.Errorf("invalid board: expected 81 characters, got %d", len(cleaned))
-	}
-
-	for i, char := range cleaned {
+	for i, char := range inputBoard {
 		row := i / 9
 		col := i % 9
 		switch char {
@@ -148,10 +132,10 @@ func (s *Sudoku) IsValid() bool {
 	return s.Validate() == nil
 }
 
-func initBoard(inputFile string) (*Sudoku, error) {
+func initBoard(inputBoard string) (*Sudoku, error) {
 	board := [9][9]int{}
 	solvedBoard := [9][9]int{}
-	if err := readBoardFromFile(inputFile, &board); err != nil {
+	if err := readBoardFromString(inputBoard, &board); err != nil {
 		return nil, err
 	}
 	currentDifficulty := estimateDifficulty(&board)
@@ -189,6 +173,6 @@ func (s *Sudoku) internalPrintBoard(anyBoard [9][9]int) {
 	fmt.Println()
 }
 
-func NewSudoku(inputFile string) (*Sudoku, error) {
-	return initBoard(inputFile)
+func NewSudoku(inputBoard string) (*Sudoku, error) {
+	return initBoard(inputBoard)
 }

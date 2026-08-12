@@ -1,31 +1,15 @@
 package sudoku
 
 import (
-	"os"
-	"path/filepath"
 	"strings"
 	"testing"
 )
 
 func TestNewSudoku_Success(t *testing.T) {
-	tempDir := t.TempDir()
-	filePath := filepath.Join(tempDir, "board.txt")
 	// Test with newlines and spaces to ensure they are cleaned properly
-	content := []byte(`________9
-1________
-_________
-_________
-_________
-_________
-____5____
-_________
-_________
-`)
-	if err := os.WriteFile(filePath, content, 0644); err != nil {
-		t.Fatalf("failed to write temp file: %v", err)
-	}
+	content := "________91________________________________________________5______________________"
 
-	s, err := NewSudoku(filePath)
+	s, err := NewSudoku(content)
 	if err != nil {
 		t.Fatalf("expected no error, got %v", err)
 	}
@@ -137,13 +121,7 @@ func TestNewSudoku_ValidationErrors(t *testing.T) {
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			tempDir := t.TempDir()
-			filePath := filepath.Join(tempDir, "invalid_board.txt")
-			if err := os.WriteFile(filePath, []byte(tc.content), 0644); err != nil {
-				t.Fatalf("failed to write temp file: %v", err)
-			}
-
-			_, err := NewSudoku(filePath)
+			_, err := NewSudoku(tc.content)
 			if err == nil {
 				t.Fatal("expected error, got nil")
 			}
