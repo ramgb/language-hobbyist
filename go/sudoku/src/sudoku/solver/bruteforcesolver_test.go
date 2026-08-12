@@ -25,7 +25,7 @@ _________
 		sb.WriteRune(r)
 	}
 
-	s, err := sudoku.NewSudoku(sb.String())
+	s, err := sudoku.NewSudokuFromString(sb.String())
 	if err != nil {
 		t.Fatalf("expected no error loading board, got %v", err)
 	}
@@ -48,7 +48,7 @@ _________
 		}
 	}
 
-	_, err = sudoku.NewSudoku(sbSolved.String())
+	_, err = sudoku.NewSudokuFromString(sbSolved.String())
 	if err != nil {
 		t.Fatalf("solved board is invalid: %v", err)
 	}
@@ -76,7 +76,7 @@ func TestBruteForceSolve_Unsolvable(t *testing.T) {
 		"_________",
 	}, "")
 
-	s, err := sudoku.NewSudoku(content)
+	s, err := sudoku.NewSudokuFromString(content)
 	if err != nil {
 		t.Fatalf("expected no error loading valid layout, got %v", err)
 	}
@@ -105,7 +105,7 @@ func BenchmarkBruteForceSolve(b *testing.B) {
 		"_________",
 	}, "")
 
-	s, err := sudoku.NewSudoku(content)
+	s, err := sudoku.NewSudokuFromString(content)
 	if err != nil {
 		b.Fatalf("failed to load Sudoku: %v", err)
 	}

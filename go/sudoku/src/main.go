@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	s, err := sudoku.NewSudoku("________91________________________________________________5______________________")
+	s, err := sudoku.NewSudoku(sudoku.Easy)
 	if err != nil {
 		log.Fatalf("Failed to initialize Sudoku: %v", err)
 	}

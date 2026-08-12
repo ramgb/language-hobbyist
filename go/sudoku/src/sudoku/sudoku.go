@@ -10,6 +10,14 @@ const (
 	Easy Difficulty = iota
 	Medium
 	Hard
+	Test
+)
+
+const (
+	testSudoku   = "________91________________________________________________5______________________"
+	easySudoku   = "53__7_9__6__195____98____6_8___6___34__8_3__17___2___6_6____28____419__5__5_8__79"
+	mediumSudoku = "5___7_9__6___95____98____6_8___6___34__8_3__17___2_____6____28____419__5__5_8__7_"
+	hardSudoku   = "5___7____6___95_____8____6_8___6____4__8_3___7___2__________28____419_____5_8__7_"
 )
 
 type Sudoku struct {
@@ -132,6 +140,23 @@ func (s *Sudoku) IsValid() bool {
 	return s.Validate() == nil
 }
 
+func generateBoard(difficulty Difficulty) (*Sudoku, error) {
+	var inputBoard string
+	switch difficulty {
+	case Test:
+		inputBoard = testSudoku
+	case Easy:
+		inputBoard = easySudoku
+	case Medium:
+		inputBoard = mediumSudoku
+	case Hard:
+		inputBoard = hardSudoku
+	default:
+		return nil, fmt.Errorf("invalid difficulty level")
+	}
+	return initBoard(inputBoard)
+}
+
 func initBoard(inputBoard string) (*Sudoku, error) {
 	board := [9][9]int{}
 	solvedBoard := [9][9]int{}
@@ -173,6 +198,10 @@ func (s *Sudoku) internalPrintBoard(anyBoard [9][9]int) {
 	fmt.Println()
 }
 
-func NewSudoku(inputBoard string) (*Sudoku, error) {
+func NewSudoku(difficulty Difficulty) (*Sudoku, error) {
+	return generateBoard(difficulty)
+}
+
+func NewSudokuFromString(inputBoard string) (*Sudoku, error) {
 	return initBoard(inputBoard)
 }

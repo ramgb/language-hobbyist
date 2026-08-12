@@ -7,9 +7,8 @@ import (
 
 func TestNewSudoku_Success(t *testing.T) {
 	// Test with newlines and spaces to ensure they are cleaned properly
-	content := "________91________________________________________________5______________________"
 
-	s, err := NewSudoku(content)
+	s, err := NewSudoku(Test)
 	if err != nil {
 		t.Fatalf("expected no error, got %v", err)
 	}
@@ -121,7 +120,7 @@ func TestNewSudoku_ValidationErrors(t *testing.T) {
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			_, err := NewSudoku(tc.content)
+			_, err := NewSudokuFromString(tc.content)
 			if err == nil {
 				t.Fatal("expected error, got nil")
 			}
@@ -130,5 +129,26 @@ func TestNewSudoku_ValidationErrors(t *testing.T) {
 				t.Errorf("expected error containing %q, got %q", tc.wantErr, err.Error())
 			}
 		})
+	}
+}
+
+func TestGenerateBoard(t *testing.T) {
+	tests := []struct {
+		diff Difficulty
+		want Difficulty
+	}{
+		{Easy, Easy},
+		{Medium, Medium},
+		{Hard, Hard},
+	}
+
+	for _, tc := range tests {
+		s, err := generateBoard(tc.diff)
+		if err != nil {
+			t.Fatalf("failed to generate board for difficulty %v: %v", tc.diff, err)
+		}
+		if s.GetDifficulty() != tc.want {
+			t.Errorf("expected difficulty %v, got %v", tc.want, s.GetDifficulty())
+		}
 	}
 }
