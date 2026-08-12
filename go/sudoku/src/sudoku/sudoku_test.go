@@ -10,6 +10,7 @@ import (
 func TestNewSudoku_Success(t *testing.T) {
 	tempDir := t.TempDir()
 	filePath := filepath.Join(tempDir, "board.txt")
+	// Test with newlines and spaces to ensure they are cleaned properly
 	content := []byte(`________9
 1________
 _________
@@ -52,95 +53,84 @@ func TestNewSudoku_ValidationErrors(t *testing.T) {
 		wantErr string
 	}{
 		{
-			name: "too short",
-			content: `________9
-1________
-`,
-			wantErr: "too few lines in the file",
+			name:    "too short",
+			content: `________91________`,
+			wantErr: "invalid board: expected 81 characters, got 18",
 		},
 		{
 			name: "too long",
-			content: `________9
-1________
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-`,
-			wantErr: "too many lines in the file",
-		},
-		{
-			name: "invalid line length",
-			content: `________
-1________
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-`,
-			wantErr: "line 1 length is 8",
+			content: strings.Join([]string{
+				"________9",
+				"1________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"____5____",
+				"_________",
+				"_________",
+				"1234", // extra 4 chars
+			}, ""),
+			wantErr: "invalid board: expected 81 characters, got 85",
 		},
 		{
 			name: "invalid character",
-			content: `_______X9
-1________
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-`,
-			wantErr: "character 'X' at line 1 position 8 is not valid",
+			content: strings.Join([]string{
+				"_______X9",
+				"1________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"____5____",
+				"_________",
+				"_________",
+			}, ""),
+			wantErr: "character 'X' at position 8 is not valid",
 		},
 		{
 			name: "duplicate in row",
-			content: `9_______9
-1________
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-`,
+			content: strings.Join([]string{
+				"9_______9",
+				"1________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"____5____",
+				"_________",
+				"_________",
+			}, ""),
 			wantErr: "duplicate value 9 found in row 1",
 		},
 		{
 			name: "duplicate in col",
-			content: `9________
-9________
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-`,
+			content: strings.Join([]string{
+				"9________",
+				"9________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+			}, ""),
 			wantErr: "duplicate value 9 found in column 1",
 		},
 		{
 			name: "duplicate in 3x3 box",
-			content: `_9_______
-__9______
-_________
-_________
-_________
-_________
-_________
-_________
-_________
-`,
+			content: strings.Join([]string{
+				"_9_______",
+				"__9______",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+				"_________",
+			}, ""),
 			wantErr: "duplicate value 9 found in 3x3 subgrid starting at cell (1,1)",
 		},
 	}

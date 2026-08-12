@@ -1,9 +1,9 @@
 package sudoku
 
 import (
-	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type Difficulty int
@@ -56,46 +56,37 @@ func estimateDifficulty(board *[9][9]int) Difficulty {
 }
 
 func readBoardFromFile(inputFile string, board *[9][9]int) error {
-	file, err := os.Open(inputFile)
+	data, err := os.ReadFile(inputFile)
 	if err != nil {
-		return fmt.Errorf("error opening file: %w", err)
-	}
-	defer file.Close()
-
-	// Create a scanner to read the file line by line
-	scanner := bufio.NewScanner(file)
-
-	// Iterate over each line
-	lineCtr := 0
-	for scanner.Scan() {
-		if lineCtr > 8 {
-			return fmt.Errorf("invalid board: too many lines in the file (expected 9)")
-		}
-		line := scanner.Text()
-		if len(line) != 9 {
-			return fmt.Errorf("invalid board: line %d length is %d (expected 9)", lineCtr+1, len(line))
-		}
-		for pos, char := range line {
-			switch char {
-			case '1', '2', '3', '4', '5', '6', '7', '8', '9':
-				val := int(char - '0')
-				board[lineCtr][pos] = val
-			case '_':
-				board[lineCtr][pos] = 0
-			default:
-				return fmt.Errorf("invalid board: character %q at line %d position %d is not valid (expected 1-9 or '_')", char, lineCtr+1, pos+1)
-			}
-		}
-		lineCtr++
-	}
-
-	// Check for any errors during scanning
-	if err := scanner.Err(); err != nil {
 		return fmt.Errorf("error reading file: %w", err)
 	}
 
-	if lineCtr < 9 {
-		return fmt.Errorf("invalid board: too few lines in the file (%d lines found, expected 9)", lineCtr)
+	// Strip all newlines, carriage returns, spaces, and tabs
+	var sb strings.Builder
+	for _, r := range string(data) {
+		if r == '\n' || r == '\r' || r == ' ' || r == '\t' {
+			continue
+		}
+		sb.WriteRune(r)
+	}
+	cleaned := sb.String()
+
+	if len(cleaned) != 81 {
+		return fmt.Errorf("invalid board: expected 81 characters, got %d", len(cleaned))
+	}
+
+	for i, char := range cleaned {
+		row := i / 9
+		col := i % 9
+		switch char {
+		case '1', '2', '3', '4', '5', '6', '7', '8', '9':
+			val := int(char - '0')
+			board[row][col] = val
+		case '_', '.', '0':
+			board[row][col] = 0
+		default:
+			return fmt.Errorf("invalid board: character %q at position %d is not valid (expected 1-9, '_', '.', or '0')", char, i+1)
+		}
 	}
 
 	return nil

@@ -11,6 +11,7 @@ import (
 func TestBruteForceSolve_Success(t *testing.T) {
 	tempDir := t.TempDir()
 	filePath := filepath.Join(tempDir, "board.txt")
+	// Test parser ability to strip newlines and spaces
 	content := []byte(`________9
 1________
 _________
@@ -47,7 +48,6 @@ _________
 				sb.WriteByte(byte('0' + solvedBoard[i][j]))
 			}
 		}
-		sb.WriteByte('\n')
 	}
 	if err := os.WriteFile(tempFile2, []byte(sb.String()), 0644); err != nil {
 		t.Fatalf("failed to write solved board: %v", err)
@@ -71,17 +71,18 @@ _________
 func TestBruteForceSolve_Unsolvable(t *testing.T) {
 	tempDir := t.TempDir()
 	filePath := filepath.Join(tempDir, "unsolvable.txt")
-	// This board passes basic validation but has no possible values for cell (0,0)
-	content := []byte(`_12______
-356______
-478______
-_________
-9________
-_________
-_________
-_________
-_________
-`)
+	// Flat 81-character unsolvable board
+	content := []byte(strings.Join([]string{
+		"_12______",
+		"356______",
+		"478______",
+		"_________",
+		"9________",
+		"_________",
+		"_________",
+		"_________",
+		"_________",
+	}, ""))
 	if err := os.WriteFile(filePath, content, 0644); err != nil {
 		t.Fatalf("failed to write temp file: %v", err)
 	}
@@ -103,19 +104,20 @@ _________
 }
 
 func BenchmarkBruteForceSolve(b *testing.B) {
-	// Prepare a standard Sudoku puzzle
 	tempDir := b.TempDir()
 	filePath := filepath.Join(tempDir, "board.txt")
-	content := []byte(`________9
-1________
-_________
-_________
-_________
-_________
-____5____
-_________
-_________
-`)
+	// Flat 81-character solvable board
+	content := []byte(strings.Join([]string{
+		"________9",
+		"1________",
+		"_________",
+		"_________",
+		"_________",
+		"_________",
+		"____5____",
+		"_________",
+		"_________",
+	}, ""))
 	if err := os.WriteFile(filePath, content, 0644); err != nil {
 		b.Fatalf("failed to write temp file: %v", err)
 	}
