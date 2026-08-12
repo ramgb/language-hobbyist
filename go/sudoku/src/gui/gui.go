@@ -17,23 +17,33 @@ const (
 	cellW = 60
 	gridW = 540
 	winW  = 540
-	winH  = 620
+	winH  = 680
 )
 
 var (
-	clueDigitImages [10]*ebiten.Image
-	userDigitImages [10]*ebiten.Image
+	clueDigitImages   [10]*ebiten.Image
+	userDigitImages   [10]*ebiten.Image
+	easyTextActive    *ebiten.Image
+	easyTextInactive  *ebiten.Image
+	mediumTextActive  *ebiten.Image
+	mediumTextInactive *ebiten.Image
+	hardTextActive    *ebiten.Image
+	hardTextInactive  *ebiten.Image
 )
 
 type Game struct {
-	sudoku       *sudoku.Sudoku
-	activeBoard  [9][9]int
-	selectedRow  int
-	selectedCol  int
-	solveButton  button
-	resetButton  button
-	message      string
-	messageImg   *ebiten.Image
+	sudoku            *sudoku.Sudoku
+	activeBoard       [9][9]int
+	selectedRow       int
+	selectedCol       int
+	solveButton       button
+	resetButton       button
+	easyButton        button
+	mediumButton      button
+	hardButton        button
+	currentDifficulty sudoku.Difficulty
+	message           string
+	messageImg        *ebiten.Image
 }
 
 type button struct {
@@ -65,6 +75,14 @@ func initDigits() {
 		clueDigitImages[i] = createScaledTextImage(fmt.Sprintf("%d", i), blueColor, 2.0)
 		userDigitImages[i] = createScaledTextImage(fmt.Sprintf("%d", i), blackColor, 2.0)
 	}
+
+	whiteColor := color.White
+	easyTextActive = createScaledTextImage("EASY", whiteColor, 1.3)
+	easyTextInactive = createScaledTextImage("EASY", blackColor, 1.3)
+	mediumTextActive = createScaledTextImage("MEDIUM", whiteColor, 1.3)
+	mediumTextInactive = createScaledTextImage("MEDIUM", blackColor, 1.3)
+	hardTextActive = createScaledTextImage("HARD", whiteColor, 1.3)
+	hardTextInactive = createScaledTextImage("HARD", blackColor, 1.3)
 }
 
 func (b *button) clicked(mx, my int) bool {
@@ -81,25 +99,44 @@ func NewGame(s *sudoku.Sudoku) *Game {
 	resetText := createScaledTextImage("RESET", color.White, 1.5)
 
 	return &Game{
-		sudoku:      s,
-		activeBoard: s.GetBoard(),
-		selectedRow: 0,
-		selectedCol: 0,
+		sudoku:            s,
+		activeBoard:       s.GetBoard(),
+		selectedRow:       0,
+		selectedCol:       0,
+		currentDifficulty: s.GetDifficulty(),
 		solveButton: button{
-			x:  60,
-			y:  565,
-			w:  160,
-			h:  40,
-			bg: solveBg,
+			x:   60,
+			y:   615,
+			w:   160,
+			h:   40,
+			bg:  solveBg,
 			img: solveText,
 		},
 		resetButton: button{
-			x:  320,
-			y:  565,
-			w:  160,
-			h:  40,
-			bg: resetBg,
+			x:   320,
+			y:   615,
+			w:   160,
+			h:   40,
+			bg:  resetBg,
 			img: resetText,
+		},
+		easyButton: button{
+			x:  60,
+			y:  555,
+			w:  120,
+			h:  35,
+		},
+		mediumButton: button{
+			x:  210,
+			y:  555,
+			w:  120,
+			h:  35,
+		},
+		hardButton: button{
+			x:  360,
+			y:  555,
+			w:  120,
+			h:  35,
 		},
 	}
 }
@@ -116,6 +153,12 @@ func (g *Game) Update() error {
 				g.solve()
 			} else if g.resetButton.clicked(mx, my) {
 				g.reset()
+			} else if g.easyButton.clicked(mx, my) {
+				g.loadDifficulty(sudoku.Easy)
+			} else if g.mediumButton.clicked(mx, my) {
+				g.loadDifficulty(sudoku.Medium)
+			} else if g.hardButton.clicked(mx, my) {
+				g.loadDifficulty(sudoku.Hard)
 			}
 		}
 	}
@@ -124,6 +167,20 @@ func (g *Game) Update() error {
 	g.handleKeyboardInput()
 
 	return nil
+}
+
+func (g *Game) loadDifficulty(diff sudoku.Difficulty) {
+	s, err := sudoku.NewSudoku(diff)
+	if err != nil {
+		g.messageImg = createScaledTextImage(fmt.Sprintf("ERROR: %v", err), color.RGBA{255, 59, 48, 255}, 1.5)
+		return
+	}
+	g.sudoku = s
+	g.activeBoard = s.GetBoard()
+	g.selectedRow = 0
+	g.selectedCol = 0
+	g.currentDifficulty = diff
+	g.messageImg = createScaledTextImage("NEW GAME", color.RGBA{0, 122, 255, 255}, 1.5)
 }
 
 func (g *Game) handleKeyboardInput() {
@@ -245,6 +302,85 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		}
 	}
 
+	// Draw difficulty buttons
+	// Easy Button
+	var easyBg color.Color
+	var easyImg *ebiten.Image
+	if g.currentDifficulty == sudoku.Easy {
+		easyBg = color.RGBA{0, 122, 255, 255}
+		easyImg = easyTextActive
+	} else {
+		easyBg = color.RGBA{225, 225, 230, 255}
+		easyImg = easyTextInactive
+	}
+	vector.DrawFilledRect(
+		screen,
+		float32(g.easyButton.x),
+		float32(g.easyButton.y),
+		float32(g.easyButton.w),
+		float32(g.easyButton.h),
+		easyBg,
+		false,
+	)
+	drawCenteredImage(
+		screen,
+		easyImg,
+		g.easyButton.x+g.easyButton.w/2,
+		g.easyButton.y+g.easyButton.h/2,
+	)
+
+	// Medium Button
+	var mediumBg color.Color
+	var mediumImg *ebiten.Image
+	if g.currentDifficulty == sudoku.Medium {
+		mediumBg = color.RGBA{0, 122, 255, 255}
+		mediumImg = mediumTextActive
+	} else {
+		mediumBg = color.RGBA{225, 225, 230, 255}
+		mediumImg = mediumTextInactive
+	}
+	vector.DrawFilledRect(
+		screen,
+		float32(g.mediumButton.x),
+		float32(g.mediumButton.y),
+		float32(g.mediumButton.w),
+		float32(g.mediumButton.h),
+		mediumBg,
+		false,
+	)
+	drawCenteredImage(
+		screen,
+		mediumImg,
+		g.mediumButton.x+g.mediumButton.w/2,
+		g.mediumButton.y+g.mediumButton.h/2,
+	)
+
+	// Hard Button
+	var hardBg color.Color
+	var hardImg *ebiten.Image
+	if g.currentDifficulty == sudoku.Hard {
+		hardBg = color.RGBA{0, 122, 255, 255}
+		hardImg = hardTextActive
+	} else {
+		hardBg = color.RGBA{225, 225, 230, 255}
+		hardImg = hardTextInactive
+	}
+	vector.DrawFilledRect(
+		screen,
+		float32(g.hardButton.x),
+		float32(g.hardButton.y),
+		float32(g.hardButton.w),
+		float32(g.hardButton.h),
+		hardBg,
+		false,
+	)
+	drawCenteredImage(
+		screen,
+		hardImg,
+		g.hardButton.x+g.hardButton.w/2,
+		g.hardButton.y+g.hardButton.h/2,
+	)
+
 	// Draw control buttons
 	// Solve button
 	vector.DrawFilledRect(
@@ -282,7 +418,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 
 	// Draw status message if present
 	if g.messageImg != nil {
-		drawCenteredImage(screen, g.messageImg, winW/2, 550)
+		drawCenteredImage(screen, g.messageImg, winW/2, 668)
 	}
 }
 
