@@ -16,7 +16,7 @@ func main() {
 
 	g := gui.NewGame(s)
 	ebiten.SetWindowSize(540, 620)
-	ebiten.SetWindowTitle("Sudoku Solver (Ebitengine)")
+	ebiten.SetWindowTitle("Sudoku")
 	if err := ebiten.RunGame(g); err != nil {
 		log.Fatalf("GUI error: %v", err)
 	}
